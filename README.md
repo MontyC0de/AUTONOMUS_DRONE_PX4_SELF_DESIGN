@@ -18,6 +18,8 @@ Autonomous drone system developed as a Final Degree Project, integrating PX4 aut
 
 This project implements an autonomous drone control system using the PX4 Autopilot flight stack and MAVSDK Python SDK. It demonstrates programmatic drone control including takeoff, landing, and offboard velocity-based flight maneuvers.
 
+![imagen](Design/Untitled_2025-Dec-15_08-25-52PM-000_CustomizedView4066260842.png)
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -47,23 +49,23 @@ The implemented flight scripts demonstrate:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    Ground Control Station                        │
-│                      (QGroundControl)                            │
+│                    Ground Control Station                       │
+│                      (QGroundControl)                           │
 └─────────────────────────────────────────────────────────────────┘
                               │ MAVLink
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                      PX4 Autopilot (SITL)                        │
+│                      PX4 Autopilot (SITL)                       │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
 │  │  Commander  │  │    EKF2     │  │  Position Controller    │  │
 │  │  (State)    │  │ (Estimator) │  │  (mc_pos_control)       │  │
 │  └─────────────┘  └─────────────┘  └─────────────────────────┘  │
-│                         uORB Messaging                           │
+│                         uORB Messaging                          │
 └─────────────────────────────────────────────────────────────────┘
                               │ MAVLink (UDP:14540)
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                   MAVSDK Python Application                      │
+│                   MAVSDK Python Application                     │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
 │  │   Action    │  │  Telemetry  │  │       Offboard          │  │
 │  │ (arm/land)  │  │ (position)  │  │  (velocity control)     │  │
