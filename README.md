@@ -317,6 +317,6 @@ This project was developed as a Final Degree Project (TFG) at the University of 
 
 ---
 
-**Universidad de Málaga** | Escuela Técnica Superior de Ingeniería de Telecomunicación | 2025-2026
+**Universidad de Málaga** | Escuela Técnica Superior de Ingenierías Industriales | 2025-2026
 
 *Antonio Montero Díaz*
