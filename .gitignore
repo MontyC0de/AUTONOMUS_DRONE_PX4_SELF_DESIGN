@@ -2,8 +2,7 @@
 # AutonomusDrone project-specific ignores
 # ============================================
 
-# Nested repositories (not tracked as submodules)
-PX4-Autopilot/
+# Note: PX4-Autopilot is tracked as a git submodule
 
 # Python virtual environments
 mavsdk-env/

@@ -103,12 +103,23 @@ git clone https://github.com/YOUR_USERNAME/AutonomusDrone.git
 cd AutonomusDrone
 ```
 
-### 2. Clone PX4-Autopilot
+### 2. Initialize PX4-Autopilot Submodule
 
-The PX4 flight stack is required but not included in this repository due to its size. Clone it separately:
+The PX4 flight stack is included as a git submodule. After cloning this repository, initialize and update the submodule:
 
 ```bash
-git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+cd AutonomusDrone
+git submodule update --init --recursive
+```
+
+**About submodules:** PX4-Autopilot is tracked at a specific commit, ensuring reproducibility. To update PX4 to the latest version:
+
+```bash
+cd PX4-Autopilot
+git pull origin main
+cd ..
+git add PX4-Autopilot
+git commit -m "Update PX4-Autopilot submodule"
 ```
 
 ### 3. Install PX4 Dependencies
@@ -146,8 +157,9 @@ AutonomusDrone/
 ├── README.md                 # This file
 ├── CLAUDE.md                 # Development guidelines
 ├── .gitignore                # Git ignore rules
+├── .gitmodules               # Git submodule configuration
 │
-├── PX4-Autopilot/            # PX4 flight stack (clone separately)
+├── PX4-Autopilot/            # PX4 flight stack (git submodule)
 │   ├── src/modules/          # Flight control modules
 │   ├── src/drivers/          # Hardware drivers
 │   ├── ROMFS/                # Runtime filesystem
