@@ -1,24 +1,21 @@
-# AUTONOMUS_DRONE_PX4_SELF_DESIGN
-Autonomous drone system developed as a Final Degree Project, integrating PX4 autopilot, and Gazebo for simulation, control, and autonomous mission execution.
-=======
-# AUTONOMOUS DRONE PX4 SELF DESIGN
+# Self-Designed Autonomous Drone Based on PX4
 
-**Trabajo Fin de Grado**
+**Final Degree Project (TFG)**, in progress
 
 <table>
-<tr><td><b>Autor</b></td><td>Antonio Montero Díaz</td></tr>
-<tr><td><b>Titulación</b></td><td>Grado en Ingeniería Electrónica, Robótica y Mecatrónica</td></tr>
-<tr><td><b>Mención</b></td><td>Control</td></tr>
-<tr><td><b>Universidad</b></td><td>Universidad de Málaga</td></tr>
-<tr><td><b>Curso Académico</b></td><td>2025-2026</td></tr>
-<tr><td><b>Tutor</b></td><td>Ricardo Vázquez</td></tr>
+<tr><td><b>Author</b></td><td>Antonio Montero Díaz</td></tr>
+<tr><td><b>Degree</b></td><td>BSc in Electronic, Robotics and Mechatronics Engineering</td></tr>
+<tr><td><b>Specialisation</b></td><td>Control</td></tr>
+<tr><td><b>University</b></td><td>University of Málaga</td></tr>
+<tr><td><b>Supervisor</b></td><td>Ricardo Vázquez</td></tr>
+<tr><td><b>Status</b></td><td>In progress</td></tr>
 </table>
 
 ---
 
 This project implements an autonomous drone control system using the PX4 Autopilot flight stack and MAVSDK Python SDK. It demonstrates programmatic drone control including takeoff, landing, and offboard velocity-based flight maneuvers.
 
-![imagen](Design/Untitled_2025-Dec-15_08-25-52PM-000_CustomizedView4066260842.png)
+![Render of the custom drone frame](Design/Untitled_2025-Dec-15_08-25-52PM-000_CustomizedView4066260842.png)
 
 ## Table of Contents
 
@@ -101,8 +98,8 @@ The implemented flight scripts demonstrate:
 ### 1. Clone this Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/AutonomusDrone.git
-cd AutonomusDrone
+git clone https://github.com/MontyC0de/AUTONOMUS_DRONE_PX4_SELF_DESIGN.git
+cd AUTONOMUS_DRONE_PX4_SELF_DESIGN
 ```
 
 ### 2. Initialize PX4-Autopilot Submodule
@@ -110,18 +107,15 @@ cd AutonomusDrone
 The PX4 flight stack is included as a git submodule. After cloning this repository, initialize and update the submodule:
 
 ```bash
-cd AutonomusDrone
 git submodule update --init --recursive
 ```
 
-**About submodules:** PX4-Autopilot is tracked at a specific commit, ensuring reproducibility. To update PX4 to the latest version:
+**About submodules:** PX4-Autopilot is tracked at a specific commit of the [MontyC0de/PX4-Autopilot](https://github.com/MontyC0de/PX4-Autopilot) fork, ensuring reproducibility. To update it to the latest commit of the fork's `dev` branch:
 
 ```bash
-cd PX4-Autopilot
-git pull origin main
-cd ..
+git submodule update --remote PX4-Autopilot
 git add PX4-Autopilot
-git commit -m "Update PX4-Autopilot submodule"
+git commit -m "chore: update px4-autopilot submodule"
 ```
 
 ### 3. Install PX4 Dependencies
@@ -139,7 +133,7 @@ This script installs all necessary dependencies including:
 ### 4. Set Up Python Virtual Environment
 
 ```bash
-cd ..  # Return to AutonomusDrone directory
+cd ..  # Return to the repository root
 python3 -m venv mavsdk-env
 source mavsdk-env/bin/activate
 pip install mavsdk
@@ -155,9 +149,8 @@ make px4_sitl_default
 ## Project Structure
 
 ```
-AutonomusDrone/
+AUTONOMUS_DRONE_PX4_SELF_DESIGN/
 ├── README.md                 # This file
-├── CLAUDE.md                 # Development guidelines
 ├── .gitignore                # Git ignore rules
 ├── .gitmodules               # Git submodule configuration
 │
@@ -171,9 +164,11 @@ AutonomusDrone/
 │   ├── vuelo_basico.py       # Basic takeoff/landing demo
 │   └── vuelo_01.py           # Offboard velocity control demo
 │
-├── mavsdk-env/               # Python virtual environment
+├── Design/                   # CAD renders and frame assembly video
 │
-└── QGroundControl-x86_64.AppImage  # Ground control station
+├── mavsdk-env/               # Python virtual environment (not tracked)
+│
+└── QGroundControl-x86_64.AppImage  # Ground control station (not tracked)
 ```
 
 ## Usage
@@ -192,7 +187,6 @@ Wait until you see `INFO  [commander] Ready for takeoff!` in the console.
 **Terminal 2 - Run Flight Script:**
 
 ```bash
-cd AutonomusDrone
 source mavsdk-env/bin/activate
 python mavsdk_commands/vuelo_basico.py
 ```
@@ -309,14 +303,12 @@ if __name__ == "__main__":
 
 ---
 
-## Licencia / License
+## About
 
-Este proyecto ha sido desarrollado como Trabajo Fin de Grado en la Universidad de Málaga.
-
-This project was developed as a Final Degree Project (TFG) at the University of Málaga, demonstrating autonomous drone control systems using open-source flight control software.
+This project is being developed as a Final Degree Project (TFG) at the University of Málaga, demonstrating autonomous drone control systems using open-source flight control software. It is currently in progress.
 
 ---
 
-**Universidad de Málaga** | Escuela Técnica Superior de Ingenierías Industriales | 2025-2026
+**University of Málaga** | School of Industrial Engineering
 
 *Antonio Montero Díaz*
