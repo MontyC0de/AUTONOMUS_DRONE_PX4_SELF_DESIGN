@@ -1,6 +1,6 @@
-# Self-Designed Autonomous Drone Based on PX4
+# Design and Control of an Autonomous UAV and its Digital Twin
 
-**Final Degree Project (TFG)**, in progress
+**Final Degree Project (TFG)**, completed in September 2026
 
 <table>
 <tr><td><b>Author</b></td><td>Antonio Montero Díaz</td></tr>
@@ -8,7 +8,7 @@
 <tr><td><b>Specialisation</b></td><td>Control</td></tr>
 <tr><td><b>University</b></td><td>University of Málaga</td></tr>
 <tr><td><b>Supervisor</b></td><td>Ricardo Vázquez</td></tr>
-<tr><td><b>Status</b></td><td>In progress</td></tr>
+<tr><td><b>Status</b></td><td>Completed (September 2026)</td></tr>
 </table>
 
 ---
@@ -305,7 +305,7 @@ if __name__ == "__main__":
 
 ## About
 
-This project is being developed as a Final Degree Project (TFG) at the University of Málaga, demonstrating autonomous drone control systems using open-source flight control software. It is currently in progress.
+This project was developed as a Final Degree Project (TFG) at the University of Málaga (September 2026), demonstrating autonomous drone control systems using open-source flight control software.
 
 ---
 
