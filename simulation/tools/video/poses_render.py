@@ -19,7 +19,11 @@ import numpy as np
 from scipy.ndimage import median_filter, uniform_filter1d
 
 REPLAY, PISTA, GIRO, OUT = sys.argv[1:5]
-ARBOLES = sys.argv[5] if len(sys.argv) > 5 else None
+# "--camara-fija": phone fixed next to the takeoff point the whole flight (no
+# jumps between stretches); otherwise one position per stretch
+FIJA = "--camara-fija" in sys.argv[5:]
+ARBOLES = next((a for a in sys.argv[5:] if not a.startswith("--")), None)
+CAM_FIJA = (2.2, 2.2, 1.5)
 FPS, T_FIN, T_ARMADO = 30.0, 272.96, 16.4
 F, CX, CY = 690.0, 270.0, 480.0
 Z_SUELO, ALTURA_MOVIL = 0.16, 1.5
@@ -102,7 +106,8 @@ for idx in tramos:
             if all(math.hypot(cand[0] - a["x"], cand[1] - a["y"]) > 5.3 * a["escala"] + 2.5 for a in arboles):
                 c = cand
                 break
-    CAM[idx] = [c[0], c[1], ALTURA_MOVIL]
+    CAM[idx] = CAM_FIJA if FIJA else [c[0], c[1], ALTURA_MOVIL]
+    c = CAM[idx[0]]
     print(f"tramo {t[idx[0]]:6.1f}-{t[idx[-1]]:6.1f} s  {'explanada ' if campo[idx[0]] else 'eucaliptos'}  "
           f"cámara ({c[0]:6.1f}, {c[1]:6.1f}) m")
 
