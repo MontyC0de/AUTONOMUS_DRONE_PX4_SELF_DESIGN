@@ -11,6 +11,7 @@ venv/
 env/
 
 # Large binaries and applications
+simulation/cad_source/
 *.AppImage
 *.AppImage:Zone.Identifier
 

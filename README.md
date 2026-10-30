@@ -21,6 +21,7 @@ This project implements an autonomous drone control system using the PX4 Autopil
 
 - [Project Overview](#project-overview)
 - [System Architecture](#system-architecture)
+- [Digital Twin Parameters](#digital-twin-parameters)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Project Structure](#project-structure)
@@ -78,12 +79,33 @@ The implemented flight scripts demonstrate:
 | QGC ↔ PX4 | MAVLink over UDP | 14550 | Ground station monitoring |
 | PX4 Internal | uORB | N/A | Inter-module publish-subscribe |
 
+## Digital Twin Parameters
+
+The Gazebo model `mi_drone` (in [`simulation/models/`](simulation/models)) uses the parameters of the real drone, not the stock PX4 x500:
+
+| Parameter | Value | Source |
+|-----------|-------|--------|
+| Body mass | 0.54 kg | Fusion 360 assembly |
+| Inertia Ixx / Iyy / Izz | 0.0087 / 0.0087 / 0.0170 kg·m² | Fusion 360 assembly (Izz ≤ Ixx + Iyy enforced) |
+| Motor positions | (±122.8, ±122.8) mm, 347 mm diagonal | CAD mesh, matches drawings (125 mm plates, 117 mm arms) |
+| Propeller | DALPROP Cyclone T5050C, 5" tri-blade, 6 g | Component spec; inertia Izz = mR²/3 |
+| Motor | Racerstar BR2205 2300KV, 4S | Component spec |
+| Max thrust per motor | ~950 g (9.32 N) | Manufacturer data (5045 prop, 14.8 V) |
+| Max motor speed | 2700 rad/s | 2300 KV × 14.8 V, ~76 % under load |
+| Motor constant | 1.278e-6 N/(rad/s)² | T_max / ω_max² |
+| Hover throttle | 0.28 (predicted) / 0.278 (SITL estimate) | m·g/4 = k·ω² |
+
+| PX4 x500 (previous) | mi_drone (now) |
+|---|---|
+| 2.0 kg, 13" props, motors at ±174 mm | 0.54 kg, 5" props, motors at ±122.8 mm |
+
 ## Prerequisites
 
 ### System Requirements
 
-- **Operating System**: Ubuntu 20.04 / 22.04 LTS (or WSL2 on Windows)
-- **Python**: 3.8 or higher
+- **Operating System**: Ubuntu 24.04 LTS (native or WSL2 on Windows 11)
+- **Simulator**: Gazebo Harmonic (gz-sim 8), installed by the PX4 setup script
+- **Python**: 3.12 (Ubuntu 24.04 default)
 - **RAM**: 8 GB minimum (16 GB recommended for Gazebo simulation)
 - **Disk Space**: ~5 GB for PX4 and dependencies
 
@@ -127,7 +149,7 @@ bash ./Tools/setup/ubuntu.sh
 
 This script installs all necessary dependencies including:
 - ARM GCC toolchain
-- Gazebo Classic simulator
+- Gazebo Harmonic simulator
 - Required Python packages
 
 ### 4. Set Up Python Virtual Environment
@@ -139,7 +161,17 @@ source mavsdk-env/bin/activate
 pip install mavsdk
 ```
 
-### 5. Build PX4 SITL
+### 5. Link the Drone Model into PX4
+
+PX4 loads Gazebo models from `PX4-Autopilot/Tools/simulation/gz/models`, which belongs to the official `PX4-gazebo-models` repository. The `mi_drone` models live in this repo under `simulation/models` and are symlinked in:
+
+```bash
+./scripts/setup_sim.sh
+```
+
+The airframe `4022_gz_mi_drone` is part of the [MontyC0de/PX4-Autopilot](https://github.com/MontyC0de/PX4-Autopilot) fork (`dev` branch).
+
+### 6. Build PX4 SITL
 
 ```bash
 cd PX4-Autopilot
@@ -160,6 +192,13 @@ AUTONOMUS_DRONE_PX4_SELF_DESIGN/
 │   ├── ROMFS/                # Runtime filesystem
 │   └── Tools/                # Build and setup tools
 │
+├── simulation/
+│   ├── models/mi_drone/      # Motor plugins (BR2205 thrust model)
+│   └── models/mi_drone_base/ # Mass, inertia, collisions, sensors, CAD meshes
+│
+├── scripts/
+│   └── setup_sim.sh          # Links the models into the PX4 tree
+│
 ├── mavsdk_commands/          # Python flight control scripts
 │   ├── vuelo_basico.py       # Basic takeoff/landing demo
 │   └── vuelo_01.py           # Offboard velocity control demo
@@ -175,11 +214,11 @@ AUTONOMUS_DRONE_PX4_SELF_DESIGN/
 
 ### Starting the Simulation Environment
 
-**Terminal 1 - Start PX4 SITL with Gazebo:**
+**Terminal 1 - Start PX4 SITL with Gazebo and the drone's digital model:**
 
 ```bash
 cd PX4-Autopilot
-make px4_sitl gazebo-classic
+make px4_sitl gz_mi_drone
 ```
 
 Wait until you see `INFO  [commander] Ready for takeoff!` in the console.
@@ -202,7 +241,7 @@ python mavsdk_commands/vuelo_basico.py
 For faster testing without the Gazebo GUI:
 
 ```bash
-HEADLESS=1 make px4_sitl gazebo-classic
+HEADLESS=1 make px4_sitl gz_mi_drone
 ```
 
 ## Flight Scripts
@@ -227,14 +266,14 @@ Demonstrates fundamental autonomous flight operations:
 
 Demonstrates offboard mode with velocity setpoints:
 
-1. Connects and arms the vehicle
+1. Connects, arms and takes off to 5 m
 2. Enters offboard control mode
-3. Executes a square pattern using NED velocity commands:
-   - Forward (North) for 5 seconds
-   - Left (East) for 5 seconds
-   - Backward (South) for 5 seconds
-   - Right (West) for 5 seconds
-4. Stops and lands
+3. Executes a 5 m square using NED velocity commands at 1 m/s:
+   - North (forward) for 5 seconds
+   - East (right) for 5 seconds
+   - South (backward) for 5 seconds
+   - West (left) for 5 seconds
+4. Stops, lands and waits until on the ground
 
 **Key Concepts:**
 - `VelocityNedYaw`: Velocity setpoint in North-East-Down frame
@@ -249,8 +288,8 @@ Demonstrates offboard mode with velocity setpoints:
 # SITL simulation build
 make px4_sitl_default
 
-# Build with Gazebo
-make px4_sitl gazebo-classic
+# Build and run with Gazebo and mi_drone
+make px4_sitl gz_mi_drone
 
 # Clean build artifacts
 make clean
@@ -270,7 +309,7 @@ from mavsdk import System
 
 async def run():
     drone = System()
-    await drone.connect(system_address="udp://:14540")
+    await drone.connect(system_address="udpin://0.0.0.0:14540")
 
     # Wait for connection
     async for state in drone.core.connection_state():
