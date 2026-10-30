@@ -166,7 +166,7 @@ This script installs all necessary dependencies including:
 cd ..  # Return to the repository root
 python3 -m venv mavsdk-env
 source mavsdk-env/bin/activate
-pip install mavsdk
+pip install -r requirements.txt
 ```
 
 ### 5. Link the Drone Model into PX4
@@ -209,7 +209,11 @@ AUTONOMUS_DRONE_PX4_SELF_DESIGN/
 │
 ├── mavsdk_commands/          # Python flight control scripts
 │   ├── vuelo_basico.py       # Basic takeoff/landing demo
-│   └── vuelo_01.py           # Offboard velocity control demo
+│   ├── vuelo_01.py           # Offboard velocity control demo
+│   ├── mision_avanzada.py    # Square, orbit, figure-eight and helix mission
+│   └── graficas_vuelo.py     # Plots and tracking metrics from a mission log
+│
+├── vuelos/                   # Mission telemetry (CSV) and generated plots
 │
 ├── Design/                   # CAD renders and frame assembly video
 │
@@ -287,6 +291,51 @@ Demonstrates offboard mode with velocity setpoints:
 - `VelocityNedYaw`: Velocity setpoint in North-East-Down frame
 - Offboard mode requires continuous setpoint streaming
 - Initial setpoint must be sent before starting offboard mode
+
+### mision_avanzada.py - Autonomous Demonstration Mission
+
+A 3.5-minute mission built for the digital twin and the real drone alike: every coordinate is relative to the takeoff point (NED), so the same script runs in SITL and on the Raspberry Pi.
+
+| Segment | Shape | Yaw |
+|---------|-------|-----|
+| Square | 8 m side, stops and turns at each corner | Facing the direction of travel |
+| Orbit | 6 m radius around the takeoff point | Pointing at the centre (inspection) |
+| Figure-eight | Gerono lemniscate, 14 × 7 m | Tangent to the path |
+| Helix | 4 m radius, 2 turns, climbing 5 → 9 m | Tangent to the path |
+| Return | Back over the takeoff point, descend to 1.5 m, land | North |
+
+**Trajectory generation.** Each segment is a curve P(θ) traversed with a minimum-jerk time law s(τ) = 10τ³ − 15τ⁴ + 6τ⁵, so it starts and ends with zero velocity and acceleration. The duration is chosen so that peak speed (2 m/s), acceleration (1.5 m/s²) and yaw rate (45 °/s) stay within limits. PX4 receives position, velocity and acceleration feedforward at 20 Hz (`set_position_velocity_acceleration_ned`).
+
+**Safety.** The mission lands if the drone leaves the geofence (15 m), climbs above the planned ceiling, or the battery drops below 30 %. If the pilot switches flight mode on the RC transmitter, the script stops sending commands immediately. Ctrl+C lands.
+
+```bash
+# Show the plan (segments, duration, range) without flying
+python mavsdk_commands/mision_avanzada.py --plan
+
+# Fly it in the digital twin
+python mavsdk_commands/mision_avanzada.py
+
+# Real drone, from the Raspberry Pi; half size and slower for the first flight
+python mavsdk_commands/mision_avanzada.py --conexion serial:///dev/serial0:921600 --escala 0.5 --velocidad 1.0
+
+# Plots and metrics (one flight, or several overlaid, e.g. twin vs real)
+python mavsdk_commands/graficas_vuelo.py vuelos/mision_XXXX.csv --etiquetas "Gemelo digital"
+python mavsdk_commands/graficas_vuelo.py sim.csv real.csv --etiquetas "Gemelo" "Real"
+```
+
+**Reference run in the digital twin** ([`vuelos/mision_20261030_175030`](vuelos/mision_20261030_175030)):
+
+| Figure | Duration | RMS error | Max error | Max speed |
+|--------|----------|-----------|-----------|-----------|
+| Square | 45.0 s | 15 cm | 30 cm | 2.06 m/s |
+| Orbit | 35.3 s | 20 cm | 36 cm | 2.09 m/s |
+| Figure-eight | 58.3 s | 13 cm | 31 cm | 2.07 m/s |
+| Helix | 47.3 s | 21 cm | 39 cm | 2.12 m/s |
+| Whole mission | 217 s | 17 cm | 39 cm | max tilt 10° |
+
+The error is measured from the MAVLink telemetry, which adds ~3 cm of latency; the PX4 log (ULog) of the same flight gives 15 cm RMS.
+
+![Top view of each figure, reference vs digital twin](vuelos/mision_20261030_175030/planta.png)
 
 ## Development
 
