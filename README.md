@@ -202,7 +202,8 @@ AUTONOMUS_DRONE_PX4_SELF_DESIGN/
 │
 ├── simulation/
 │   ├── models/mi_drone/      # Motor plugins (BR2205 thrust model)
-│   └── models/mi_drone_base/ # Mass, inertia, collisions, sensors, CAD meshes
+│   ├── models/mi_drone_base/ # Mass, inertia, collisions, sensors, CAD meshes
+│   └── tools/                # mass_model.py (inertia), decimate_frame.py (CAD mesh)
 │
 ├── scripts/
 │   └── setup_sim.sh          # Links the models into the PX4 tree
@@ -234,6 +235,12 @@ make px4_sitl gz_mi_drone
 ```
 
 Wait until you see `INFO  [commander] Ready for takeoff!` in the console.
+
+For videos, bring the follow camera closer to the drone (default is 2 m away):
+
+```bash
+PX4_GZ_FOLLOW_OFFSET_X=-0.9 PX4_GZ_FOLLOW_OFFSET_Y=-0.9 PX4_GZ_FOLLOW_OFFSET_Z=0.5 make px4_sitl gz_mi_drone
+```
 
 **Terminal 2 - Run Flight Script:**
 
