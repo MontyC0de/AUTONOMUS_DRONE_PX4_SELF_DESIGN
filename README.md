@@ -81,23 +81,31 @@ The implemented flight scripts demonstrate:
 
 ## Digital Twin Parameters
 
-The Gazebo model `mi_drone` (in [`simulation/models/`](simulation/models)) uses the parameters of the real drone, not the stock PX4 x500:
+The Gazebo model `mi_drone` (in [`simulation/models/`](simulation/models)) uses the parameters of the real drone, not the stock PX4 x500. Masses and inertia come from [`simulation/tools/mass_model.py`](simulation/tools/mass_model.py), a lumped-mass model that places every component at its CAD position:
+
+```bash
+python3 simulation/tools/mass_model.py
+```
 
 | Parameter | Value | Source |
 |-----------|-------|--------|
-| Body mass | 0.54 kg | Fusion 360 assembly |
-| Inertia Ixx / Iyy / Izz | 0.0087 / 0.0087 / 0.0170 kg·m² | Fusion 360 assembly (Izz ≤ Ixx + Iyy enforced) |
+| Total mass | 0.970 kg | Scale (battery and props on) |
+| Battery | 0.200 kg | Scale (Tattu 4S 2200 mAh 45C) |
+| Rotor (motor + nut + prop) | 0.033 kg × 4 | Scale |
+| Body (`base_link`) | 0.838 kg, CoM (−1.3, 2.3, −8.7) mm | 0.970 − 4 × 0.033 |
+| Vehicle inertia Ixx / Iyy / Izz | 0.0056 / 0.0052 / 0.0075 kg·m² | Lumped-mass model |
 | Motor positions | (±122.8, ±122.8) mm, 347 mm diagonal | CAD mesh, matches drawings (125 mm plates, 117 mm arms) |
-| Propeller | DALPROP Cyclone T5050C, 5" tri-blade, 6 g | Component spec; inertia Izz = mR²/3 |
+| Propeller | DALPROP Cyclone T5050C, 5" tri-blade | Rotor inertia Izz = 8.6e-6 kg·m² |
 | Motor | Racerstar BR2205 2300KV, 4S | Component spec |
 | Max thrust per motor | ~950 g (9.32 N) | Manufacturer data (5045 prop, 14.8 V) |
 | Max motor speed | 2700 rad/s | 2300 KV × 14.8 V, ~76 % under load |
 | Motor constant | 1.278e-6 N/(rad/s)² | T_max / ω_max² |
-| Hover throttle | 0.28 (predicted) / 0.278 (SITL estimate) | m·g/4 = k·ω² |
+| Thrust / weight | 3.9 | 37.3 N / 9.5 N |
+| Hover throttle | 0.419 (predicted) / 0.420 (SITL estimate) | m·g/4 = k·ω² |
 
 | PX4 x500 (previous) | mi_drone (now) |
 |---|---|
-| 2.0 kg, 13" props, motors at ±174 mm | 0.54 kg, 5" props, motors at ±122.8 mm |
+| 2.0 kg, 13" props, motors at ±174 mm | 0.97 kg, 5" props, motors at ±122.8 mm |
 
 ## Prerequisites
 

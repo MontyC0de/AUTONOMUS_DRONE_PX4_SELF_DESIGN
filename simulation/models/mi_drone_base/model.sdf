@@ -5,18 +5,19 @@
     <self_collide>false</self_collide>
     <static>false</static>
     <link name="base_link">
-      <!-- Mass and inertia of the real drone, from the Fusion 360 assembly.
-           Izz must satisfy Izz <= Ixx + Iyy (rigid body); the rounded 0.0176
-           breaks it, so 0.0170 is used until the exact Fusion values are in. -->
+      <!-- Real drone: 970 g on the scale (battery 200 g) minus 4 x 33 g rotors.
+           CoM and inertia from the lumped-mass model in
+           simulation/tools/mass_model.py (CAD positions + measured/datasheet masses). -->
       <inertial>
-        <mass>0.54</mass>
+        <pose>-0.0013 0.0023 -0.0087 0 0 0</pose>
+        <mass>0.838</mass>
         <inertia>
-          <ixx>0.0087</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0087</iyy>
-          <iyz>0</iyz>
-          <izz>0.0170</izz>
+          <ixx>0.00359</ixx>
+          <ixy>-1.9e-06</ixy>
+          <ixz>4.6e-05</ixz>
+          <iyy>0.00313</iyy>
+          <iyz>-4.1e-05</iyz>
+          <izz>0.00354</izz>
         </inertia>
       </inertial>
       <gravity>true</gravity>
@@ -226,11 +227,12 @@
       <velocity_decay/>
       <pose>0.1228 -0.1228 0 0 0 0</pose>
       <inertial>
-          <mass>0.006</mass>
+          <pose>0 0 0.012 0 0 0</pose>
+          <mass>0.033</mass>
           <inertia>
-            <ixx>4.03e-06</ixx>
-            <iyy>4.03e-06</iyy>
-            <izz>8.06e-06</izz>
+            <ixx>7.08e-06</ixx>
+            <iyy>7.08e-06</iyy>
+            <izz>8.59e-06</izz>
           </inertia>
         </inertial>
       <visual name="rotor_0_visual">
@@ -292,11 +294,12 @@
       <velocity_decay/>
       <pose>-0.1228 0.1228 0 0 0 0</pose>
       <inertial>
-          <mass>0.006</mass>
+          <pose>0 0 0.012 0 0 0</pose>
+          <mass>0.033</mass>
           <inertia>
-            <ixx>4.03e-06</ixx>
-            <iyy>4.03e-06</iyy>
-            <izz>8.06e-06</izz>
+            <ixx>7.08e-06</ixx>
+            <iyy>7.08e-06</iyy>
+            <izz>8.59e-06</izz>
           </inertia>
         </inertial>
       <visual name="rotor_1_visual">
@@ -358,11 +361,12 @@
       <velocity_decay/>
       <pose>0.1228 0.1228 0 0 0 0</pose>
       <inertial>
-          <mass>0.006</mass>
+          <pose>0 0 0.012 0 0 0</pose>
+          <mass>0.033</mass>
           <inertia>
-            <ixx>4.03e-06</ixx>
-            <iyy>4.03e-06</iyy>
-            <izz>8.06e-06</izz>
+            <ixx>7.08e-06</ixx>
+            <iyy>7.08e-06</iyy>
+            <izz>8.59e-06</izz>
           </inertia>
         </inertial>
       <visual name="rotor_2_visual">
@@ -424,11 +428,12 @@
       <velocity_decay/>
       <pose>-0.1228 -0.1228 0 0 0 0</pose>
       <inertial>
-          <mass>0.006</mass>
+          <pose>0 0 0.012 0 0 0</pose>
+          <mass>0.033</mass>
           <inertia>
-            <ixx>4.03e-06</ixx>
-            <iyy>4.03e-06</iyy>
-            <izz>8.06e-06</izz>
+            <ixx>7.08e-06</ixx>
+            <iyy>7.08e-06</iyy>
+            <izz>8.59e-06</izz>
           </inertia>
         </inertial>
       <visual name="rotor_3_visual">
