@@ -214,6 +214,7 @@ AUTONOMUS_DRONE_PX4_SELF_DESIGN/
 │   ├── vuelo_basico.py       # Basic takeoff/landing demo
 │   ├── vuelo_01.py           # Offboard velocity control demo
 │   ├── mision_avanzada.py    # Square, orbit, figure-eight and helix mission
+│   ├── replay_trayectoria.py # Replays a timed trajectory (e.g. the real flight)
 │   └── graficas_vuelo.py     # Plots and tracking metrics from a mission log
 │
 ├── vuelos/                   # Mission telemetry (CSV) and generated plots
@@ -280,6 +281,38 @@ python3 simulation/tools/campo_pruebas.py <lat> <lon> --elevacion <m> && ./scrip
 | ![Digital twin over the real test site](docs/img/gemelo_campo_pruebas.jpg) | ![Top view of the test-site world](docs/img/campo_pruebas_cenital.jpg) |
 
 *Orthophoto: PNOA cedido por © Instituto Geográfico Nacional ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).*
+
+### Replaying the Real Flight of 31 Aug 2025
+
+The real test flight (manual, RC) was filmed with a phone. Its trajectory was reconstructed from the video and is replayed in the twin with the same timeline, so both can be shown side by side.
+
+**Reconstruction** ([`simulation/tools/video/`](simulation/tools/video), result in [`vuelos/real_20250831/`](vuelos/real_20250831)):
+
+1. **Tracking** (`seguir_dron.py`), 2730 frames at 10 fps: the lime-green props when the drone is close, a very dark blob fully surrounded by sky when it is far; detected in 99 % of the frames.
+2. **Range** from the apparent size (0.32–0.42 m drone, 690 px focal length of the Nothing Phone 2 at 540 px), filtered in log scale.
+3. **Camera yaw** (`giro_camara.py`) by optical flow of the background, anchored to landmarks (eucalyptus stand to the SW, olive-terraced hill to the SE).
+4. **Height** from the elevation above the visible skyline, and **position** in ENU around the takeoff point; speed limited to 6 m/s (`reconstruir.py`).
+
+It is an approximation (distances roughly ±30 %, a manual correction between 1:42 and 2:04 when the drone sits on the far tree line); the timeline is exact. The Pixhawk ULog of that flight would give the exact path.
+
+![Reconstructed trajectory of the real flight](vuelos/real_20250831/trayectoria_video.png)
+
+Replayed in the twin it follows the reconstructed path with **0.38 m RMS** error over 252 s:
+
+![Real flight vs digital twin](vuelos/real_20250831/gemelo_vs_video.png)
+
+```bash
+# Twin in the test-site world, then:
+python mavsdk_commands/replay_trayectoria.py vuelos/real_20250831/trayectoria_video.csv
+```
+
+The replay takes off in OFFBOARD at the same video second as the real drone (0:19.5), follows the path with position, velocity and acceleration feedforward, faces the direction of travel, and finally returns over the takeoff point and lands. To see it from where the phone was, place the Gazebo camera there and track the drone:
+
+```bash
+gz service -s /gui/move_to/pose --reqtype gz.msgs.GUICamera --reptype gz.msgs.Boolean --timeout 3000 \
+  --req "pose: {position: {x: 3, y: 3, z: 1.6}, orientation: {w: 0.3822, x: 0.0462, y: 0.0191, z: -0.9227}}"
+gz topic -t /gui/track -m gz.msgs.CameraTrack -p "track_mode: TRACK, track_target: {name: 'mi_drone_0'}, track_pgain: 0.3"
+```
 
 ### Simulation Without Graphics
 
