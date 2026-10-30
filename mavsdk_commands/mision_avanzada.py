@@ -35,9 +35,11 @@ import asyncio
 import csv
 import math
 import os
+import signal
 from datetime import datetime
 
 from mavsdk import System
+from mavsdk.action import ActionError
 from mavsdk.offboard import (AccelerationNed, OffboardError, PositionNedYaw,
                              VelocityNedYaw)
 from mavsdk.telemetry import FlightMode
@@ -247,7 +249,14 @@ def lanzar_telemetria(drone, estado):
 async def esperar_listo(drone, args, estado):
     """Conecta, arranca la telemetría y comprueba que se puede volar. Devuelve las tareas."""
     print(f"Conectando a {args.conexion} ...")
-    await drone.connect(system_address=args.conexion)
+    # connect() lanza mavsdk_server como proceso hijo. Con SIGINT ignorado al
+    # crearlo, lo hereda: un Ctrl+C en la terminal ya no lo mata y el script
+    # puede seguir enviando la orden de aterrizar.
+    anterior = signal.signal(signal.SIGINT, signal.SIG_IGN)
+    try:
+        await drone.connect(system_address=args.conexion)
+    finally:
+        signal.signal(signal.SIGINT, anterior)
     async for s in drone.core.connection_state():
         if s.is_connected:
             print("✅ Conectado a PX4")
@@ -258,6 +267,24 @@ async def esperar_listo(drone, args, estado):
     async for health in drone.telemetry.health():
         if health.is_global_position_ok and health.is_home_position_ok:
             break
+
+    # Si un vuelo anterior se cortó, PX4 puede seguir en OFFBOARD, modo en el
+    # que no deja armar sin consignas: se pasa a HOLD antes de nada
+    try:
+        await drone.action.hold()
+    except ActionError:
+        pass
+
+    # is_armable recoge los chequeos previos de PX4 (sensores, modo, enlace
+    # con la estación de tierra, que es este script)
+    async def armable():
+        async for health in drone.telemetry.health():
+            if health.is_armable:
+                return
+    try:
+        await asyncio.wait_for(armable(), timeout=30)
+    except asyncio.TimeoutError:
+        raise Abortar("PX4 no permite armar; revisa los avisos en QGroundControl")
 
     for _ in range(50):
         if "p" in estado and "bat" in estado:
@@ -272,7 +299,7 @@ async def esperar_listo(drone, args, estado):
     return tareas
 
 
-async def volar_plan(drone, plan, args, estado, casa, registro):
+async def volar_plan(drone, plan, args, estado, casa, registro, parar):
     periodo = 1.0 / FRECUENCIA
     reloj = asyncio.get_running_loop().time
     t_mision = 0.0
@@ -291,6 +318,8 @@ async def volar_plan(drone, plan, args, estado, casa, registro):
                 AccelerationNed(*a))
 
             # Seguridad
+            if parar.is_set():
+                raise Abortar("interrumpida por el operador (Ctrl+C)")
             modo = estado.get("modo")
             if modo == FlightMode.OFFBOARD:
                 offboard_visto = True
@@ -340,6 +369,14 @@ async def run(args):
         return
 
     drone = System()
+    try:
+        await mision(drone, plan, args)
+    finally:
+        # mavsdk_server ignora Ctrl+C (ver esperar_listo), así que se cierra aquí
+        drone._stop_mavsdk_server()
+
+
+async def mision(drone, plan, args):
     estado = {}
     try:
         tareas = await esperar_listo(drone, args, estado)
@@ -349,6 +386,19 @@ async def run(args):
 
     casa = estado["p"]
     print(f"🏠 Despegue en NED local ({casa[0]:.2f}, {casa[1]:.2f}, {casa[2]:.2f})")
+
+    # Ctrl+C no cancela las tareas (eso dejaría a PX4 sin consignas y sin orden
+    # de aterrizar): solo marca el evento y la misión aborta por la vía normal.
+    parar = asyncio.Event()
+
+    def al_interrumpir():
+        if parar.is_set():
+            print("⏳ Ya se está aterrizando; para tomar el control usa la emisora")
+        parar.set()
+
+    bucle = asyncio.get_running_loop()
+    for sig in (signal.SIGINT, signal.SIGTERM):
+        bucle.add_signal_handler(sig, al_interrumpir)
 
     os.makedirs(CARPETA_VUELOS, exist_ok=True)
     ruta = os.path.join(CARPETA_VUELOS, f"mision_{datetime.now():%Y%m%d_%H%M%S}.csv")
@@ -363,6 +413,8 @@ async def run(args):
             await drone.action.arm()
             await drone.action.takeoff()
             while -(estado["p"][2] - casa[2]) < args.altura * 0.95:
+                if parar.is_set():
+                    raise Abortar("interrumpida por el operador (Ctrl+C)")
                 await asyncio.sleep(0.1)
 
             # Primera consigna = punto actual, después se activa OFFBOARD
@@ -370,20 +422,24 @@ async def run(args):
                 PositionNedYaw(casa[0], casa[1], casa[2] - args.altura, 0.0))
             await drone.offboard.start()
             print("🧠 OFFBOARD activo, empieza la misión")
-            await volar_plan(drone, plan, args, estado, casa, registro)
+            await volar_plan(drone, plan, args, estado, casa, registro, parar)
             await aterrizar(drone)
         except Abortar as e:
             print(f"⚠️ Misión abortada: {e}")
             if not e.piloto:
                 await aterrizar(drone)
-        except (KeyboardInterrupt, asyncio.CancelledError):
-            print("⚠️ Interrumpida por el operador")
-            await aterrizar(drone)
-            raise
+        except (ActionError, OffboardError) as e:
+            print(f"⛔ PX4 ha rechazado la orden: {e}")
+            async for armado in drone.telemetry.armed():
+                if armado:
+                    await aterrizar(drone)
+                break
         finally:
             print(f"📄 Telemetría guardada en {os.path.relpath(ruta)}")
             for tarea in tareas:
                 tarea.cancel()
+            for sig in (signal.SIGINT, signal.SIGTERM):
+                bucle.remove_signal_handler(sig)
 
 
 def main():
