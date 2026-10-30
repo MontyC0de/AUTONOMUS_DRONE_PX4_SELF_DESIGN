@@ -1,0 +1,2154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generado por simulation/tools/campo_pruebas.py. Origen = punto de despegue
+     (36.5117778, -4.6959167). Ortofoto PNOA (c) Instituto Geografico Nacional, CC BY 4.0.
+     Arboles: Gazebo Fuel OpenRobotics Oak tree / Pine Tree, CC0. -->
+<sdf version="1.9">
+  <model name="campo_pruebas">
+    <static>true</static>
+    <link name="suelo">
+      <collision name="suelo">
+        <geometry><plane><normal>0 0 1</normal><size>2000 2000</size></plane></geometry>
+      </collision>
+      <visual name="suelo_detalle">
+        <pose>0 0 0.0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/suelo_detalle.obj</uri></mesh></geometry>
+      </visual>
+      <visual name="suelo_contexto">
+        <pose>0 0 -0.3 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/suelo_contexto.obj</uri></mesh></geometry>
+      </visual>
+    </link>
+    <link name="arboles">
+      <visual name="arbol0_branch">
+        <pose>-41.69 100.81 0 0 0 2.035</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol0_bark">
+        <pose>-41.69 100.81 0 0 0 2.035</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol0_tronco">
+        <pose>-41.69 100.81 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol1_branch">
+        <pose>-22.14 99.67 0 0 0 0.948</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol1_bark">
+        <pose>-22.14 99.67 0 0 0 0.948</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol1_tronco">
+        <pose>-22.14 99.67 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol2_branch">
+        <pose>-6.79 100.62 0 0 0 4.09</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol2_bark">
+        <pose>-6.79 100.62 0 0 0 4.09</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol2_tronco">
+        <pose>-6.79 100.62 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol3_branch">
+        <pose>-1.96 100.55 0 0 0 0.455</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol3_bark">
+        <pose>-1.96 100.55 0 0 0 0.455</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol3_tronco">
+        <pose>-1.96 100.55 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol4_branch">
+        <pose>28.11 99.13 0 0 0 3.367</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol4_bark">
+        <pose>28.11 99.13 0 0 0 3.367</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol4_tronco">
+        <pose>28.11 99.13 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol5_branch">
+        <pose>42.25 98.3 0 0 0 2.298</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol5_bark">
+        <pose>42.25 98.3 0 0 0 2.298</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol5_tronco">
+        <pose>42.25 98.3 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol6_branch">
+        <pose>52.85 99.9 0 0 0 0.364</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol6_bark">
+        <pose>52.85 99.9 0 0 0 0.364</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol6_tronco">
+        <pose>52.85 99.9 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol7_branch">
+        <pose>60.9 99.5 0 0 0 3.188</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol7_bark">
+        <pose>60.9 99.5 0 0 0 3.188</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol7_tronco">
+        <pose>60.9 99.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol8_branch">
+        <pose>65.9 99.5 0 0 0 0.236</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol8_bark">
+        <pose>65.9 99.5 0 0 0 0.236</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol8_tronco">
+        <pose>65.9 99.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol9_branch">
+        <pose>70.9 94.5 0 0 0 2.725</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol9_bark">
+        <pose>70.9 94.5 0 0 0 2.725</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol9_tronco">
+        <pose>70.9 94.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol10_branch">
+        <pose>70.9 89.5 0 0 0 0.439</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol10_bark">
+        <pose>70.9 89.5 0 0 0 0.439</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol10_tronco">
+        <pose>70.9 89.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol11_branch">
+        <pose>73.39 100.57 0 0 0 0.57</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.452 0.452 0.452</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol11_bark">
+        <pose>73.39 100.57 0 0 0 0.57</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.452 0.452 0.452</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol11_tronco">
+        <pose>73.39 100.57 1.356 0 0 0</pose>
+        <geometry><cylinder><radius>0.16</radius><length>2.71</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol12_branch">
+        <pose>77.3 99.5 0 0 0 2.667</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol12_bark">
+        <pose>77.3 99.5 0 0 0 2.667</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol12_tronco">
+        <pose>77.3 99.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol13_branch">
+        <pose>82.3 99.5 0 0 0 5.195</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol13_bark">
+        <pose>82.3 99.5 0 0 0 5.195</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol13_tronco">
+        <pose>82.3 99.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol14_branch">
+        <pose>87.3 99.5 0 0 0 0.778</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol14_bark">
+        <pose>87.3 99.5 0 0 0 0.778</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol14_tronco">
+        <pose>87.3 99.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol15_branch">
+        <pose>92.3 99.5 0 0 0 1.403</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol15_bark">
+        <pose>92.3 99.5 0 0 0 1.403</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol15_tronco">
+        <pose>92.3 99.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol16_branch">
+        <pose>97.3 99.5 0 0 0 3.942</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol16_bark">
+        <pose>97.3 99.5 0 0 0 3.942</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol16_tronco">
+        <pose>97.3 99.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol17_branch">
+        <pose>87.3 94.5 0 0 0 5.955</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol17_bark">
+        <pose>87.3 94.5 0 0 0 5.955</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol17_tronco">
+        <pose>87.3 94.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol18_branch">
+        <pose>92.3 94.5 0 0 0 3.626</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol18_bark">
+        <pose>92.3 94.5 0 0 0 3.626</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol18_tronco">
+        <pose>92.3 94.5 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol19_branch">
+        <pose>103.2 97.52 0 0 0 2.492</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol19_bark">
+        <pose>103.2 97.52 0 0 0 2.492</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol19_tronco">
+        <pose>103.2 97.52 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol20_branch">
+        <pose>11.85 97.78 0 0 0 6.134</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol20_bark">
+        <pose>11.85 97.78 0 0 0 6.134</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol20_tronco">
+        <pose>11.85 97.78 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol21_branch">
+        <pose>64.31 94.66 0 0 0 0.293</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.427 0.427 0.427</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol21_bark">
+        <pose>64.31 94.66 0 0 0 0.293</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.427 0.427 0.427</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol21_tronco">
+        <pose>64.31 94.66 1.281 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.56</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol22_branch">
+        <pose>-40.2 92.9 0 0 0 5.394</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol22_bark">
+        <pose>-40.2 92.9 0 0 0 5.394</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol22_tronco">
+        <pose>-40.2 92.9 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol23_branch">
+        <pose>-35.2 92.9 0 0 0 1.82</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol23_bark">
+        <pose>-35.2 92.9 0 0 0 1.82</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol23_tronco">
+        <pose>-35.2 92.9 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol24_branch">
+        <pose>-40.2 87.9 0 0 0 0.906</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol24_bark">
+        <pose>-40.2 87.9 0 0 0 0.906</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol24_tronco">
+        <pose>-40.2 87.9 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol25_branch">
+        <pose>-35.2 87.9 0 0 0 0.74</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol25_bark">
+        <pose>-35.2 87.9 0 0 0 0.74</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol25_tronco">
+        <pose>-35.2 87.9 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol26_branch">
+        <pose>-30.2 87.9 0 0 0 1.938</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol26_bark">
+        <pose>-30.2 87.9 0 0 0 1.938</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol26_tronco">
+        <pose>-30.2 87.9 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol27_branch">
+        <pose>-55.59 92.03 0 0 0 5.128</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol27_bark">
+        <pose>-55.59 92.03 0 0 0 5.128</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol27_tronco">
+        <pose>-55.59 92.03 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol28_branch">
+        <pose>99.74 91.24 0 0 0 1.136</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol28_bark">
+        <pose>99.74 91.24 0 0 0 1.136</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol28_tronco">
+        <pose>99.74 91.24 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol29_branch">
+        <pose>77.67 92.92 0 0 0 3.654</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.432 0.432 0.432</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol29_bark">
+        <pose>77.67 92.92 0 0 0 3.654</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.432 0.432 0.432</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol29_tronco">
+        <pose>77.67 92.92 1.296 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.59</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol30_branch">
+        <pose>83.22 92.03 0 0 0 4.014</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol30_bark">
+        <pose>83.22 92.03 0 0 0 4.014</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol30_tronco">
+        <pose>83.22 92.03 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol31_branch">
+        <pose>-4.83 88.59 0 0 0 2.34</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol31_bark">
+        <pose>-4.83 88.59 0 0 0 2.34</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol31_tronco">
+        <pose>-4.83 88.59 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol32_branch">
+        <pose>-15.86 88.7 0 0 0 3.442</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol32_bark">
+        <pose>-15.86 88.7 0 0 0 3.442</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol32_tronco">
+        <pose>-15.86 88.7 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol33_branch">
+        <pose>-25.94 82.4 0 0 0 0.395</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol33_bark">
+        <pose>-25.94 82.4 0 0 0 0.395</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol33_tronco">
+        <pose>-25.94 82.4 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol34_branch">
+        <pose>50.11 84.25 0 0 0 0.374</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol34_bark">
+        <pose>50.11 84.25 0 0 0 0.374</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol34_tronco">
+        <pose>50.11 84.25 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol35_branch">
+        <pose>36.78 84.98 0 0 0 1.294</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol35_bark">
+        <pose>36.78 84.98 0 0 0 1.294</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol35_tronco">
+        <pose>36.78 84.98 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol36_branch">
+        <pose>44.66 84.96 0 0 0 4.275</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.423 0.423 0.423</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol36_bark">
+        <pose>44.66 84.96 0 0 0 4.275</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.423 0.423 0.423</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol36_tronco">
+        <pose>44.66 84.96 1.269 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.54</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol37_branch">
+        <pose>-53.7 83.9 0 0 0 2.687</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol37_bark">
+        <pose>-53.7 83.9 0 0 0 2.687</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol37_tronco">
+        <pose>-53.7 83.9 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol38_branch">
+        <pose>-48.7 83.9 0 0 0 1.974</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol38_bark">
+        <pose>-48.7 83.9 0 0 0 1.974</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol38_tronco">
+        <pose>-48.7 83.9 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol39_branch">
+        <pose>-53.7 78.9 0 0 0 3.679</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol39_bark">
+        <pose>-53.7 78.9 0 0 0 3.679</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol39_tronco">
+        <pose>-53.7 78.9 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol40_branch">
+        <pose>-48.7 78.9 0 0 0 2.847</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol40_bark">
+        <pose>-48.7 78.9 0 0 0 2.847</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol40_tronco">
+        <pose>-48.7 78.9 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol41_branch">
+        <pose>-32.56 81.94 0 0 0 1.883</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol41_bark">
+        <pose>-32.56 81.94 0 0 0 1.883</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol41_tronco">
+        <pose>-32.56 81.94 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol42_branch">
+        <pose>67.74 79.79 0 0 0 4.991</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol42_bark">
+        <pose>67.74 79.79 0 0 0 4.991</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol42_tronco">
+        <pose>67.74 79.79 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol43_branch">
+        <pose>40.65 80.1 0 0 0 4.392</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.428 0.428 0.428</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol43_bark">
+        <pose>40.65 80.1 0 0 0 4.392</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.428 0.428 0.428</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol43_tronco">
+        <pose>40.65 80.1 1.284 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.57</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol44_branch">
+        <pose>59.82 80.16 0 0 0 1.534</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.442 0.442 0.442</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol44_bark">
+        <pose>59.82 80.16 0 0 0 1.534</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.442 0.442 0.442</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol44_tronco">
+        <pose>59.82 80.16 1.326 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.65</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol45_branch">
+        <pose>-13.65 77.43 0 0 0 3.609</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol45_bark">
+        <pose>-13.65 77.43 0 0 0 3.609</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol45_tronco">
+        <pose>-13.65 77.43 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol46_branch">
+        <pose>34.77 78.79 0 0 0 3.3</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.41 0.41 0.41</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol46_bark">
+        <pose>34.77 78.79 0 0 0 3.3</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.41 0.41 0.41</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol46_tronco">
+        <pose>34.77 78.79 1.23 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.46</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol47_branch">
+        <pose>41.94 75.56 0 0 0 5.499</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol47_bark">
+        <pose>41.94 75.56 0 0 0 5.499</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol47_tronco">
+        <pose>41.94 75.56 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol48_branch">
+        <pose>-75.44 74.06 0 0 0 4.583</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol48_bark">
+        <pose>-75.44 74.06 0 0 0 4.583</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol48_tronco">
+        <pose>-75.44 74.06 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol49_branch">
+        <pose>80.24 75.34 0 0 0 1.809</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol49_bark">
+        <pose>80.24 75.34 0 0 0 1.809</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol49_tronco">
+        <pose>80.24 75.34 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol50_branch">
+        <pose>50.4 74.99 0 0 0 6.159</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.462 0.462 0.462</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol50_bark">
+        <pose>50.4 74.99 0 0 0 6.159</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.462 0.462 0.462</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol50_tronco">
+        <pose>50.4 74.99 1.3860000000000001 0 0 0</pose>
+        <geometry><cylinder><radius>0.16</radius><length>2.77</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol51_branch">
+        <pose>34.46 74.48 0 0 0 0.742</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.413 0.413 0.413</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol51_bark">
+        <pose>34.46 74.48 0 0 0 0.742</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.413 0.413 0.413</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol51_tronco">
+        <pose>34.46 74.48 1.2389999999999999 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.48</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol52_branch">
+        <pose>94.18 71.11 0 0 0 2.627</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol52_bark">
+        <pose>94.18 71.11 0 0 0 2.627</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.472 0.472 0.472</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol52_tronco">
+        <pose>94.18 71.11 1.416 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol53_branch">
+        <pose>-22.0 67.13 0 0 0 4.757</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.833 0.833 0.833</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol53_bark">
+        <pose>-22.0 67.13 0 0 0 4.757</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.833 0.833 0.833</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol53_tronco">
+        <pose>-22.0 67.13 2.4989999999999997 0 0 0</pose>
+        <geometry><cylinder><radius>0.29</radius><length>5.00</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol54_branch">
+        <pose>-82.48 67.31 0 0 0 0.955</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.426 0.426 0.426</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol54_bark">
+        <pose>-82.48 67.31 0 0 0 0.955</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.426 0.426 0.426</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol54_tronco">
+        <pose>-82.48 67.31 1.278 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.56</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol55_branch">
+        <pose>-94.3 62.99 0 0 0 3.072</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.481 0.481 0.481</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol55_bark">
+        <pose>-94.3 62.99 0 0 0 3.072</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.481 0.481 0.481</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol55_tronco">
+        <pose>-94.3 62.99 1.443 0 0 0</pose>
+        <geometry><cylinder><radius>0.17</radius><length>2.89</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol56_branch">
+        <pose>-88.53 63.62 0 0 0 0.246</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.402 0.402 0.402</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol56_bark">
+        <pose>-88.53 63.62 0 0 0 0.246</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.402 0.402 0.402</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol56_tronco">
+        <pose>-88.53 63.62 1.206 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.41</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol57_branch">
+        <pose>34.59 51.47 0 0 0 4.199</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.955 0.955 0.955</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol57_bark">
+        <pose>34.59 51.47 0 0 0 4.199</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.955 0.955 0.955</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol57_tronco">
+        <pose>34.59 51.47 2.8649999999999998 0 0 0</pose>
+        <geometry><cylinder><radius>0.33</radius><length>5.73</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol58_branch">
+        <pose>-56.95 53.61 0 0 0 4.804</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.602 0.602 0.602</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol58_bark">
+        <pose>-56.95 53.61 0 0 0 4.804</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.602 0.602 0.602</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol58_tronco">
+        <pose>-56.95 53.61 1.806 0 0 0</pose>
+        <geometry><cylinder><radius>0.21</radius><length>3.61</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol59_branch">
+        <pose>-22.56 51.44 0 0 0 3.6</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.674 0.674 0.674</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol59_bark">
+        <pose>-22.56 51.44 0 0 0 3.6</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.674 0.674 0.674</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol59_tronco">
+        <pose>-22.56 51.44 2.0220000000000002 0 0 0</pose>
+        <geometry><cylinder><radius>0.24</radius><length>4.04</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol60_branch">
+        <pose>39.92 43.34 0 0 0 5.501</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.464 0.464 0.464</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol60_bark">
+        <pose>39.92 43.34 0 0 0 5.501</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.464 0.464 0.464</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol60_tronco">
+        <pose>39.92 43.34 1.3920000000000001 0 0 0</pose>
+        <geometry><cylinder><radius>0.16</radius><length>2.78</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol61_branch">
+        <pose>31.9 43.12 0 0 0 1.971</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.43 0.43 0.43</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol61_bark">
+        <pose>31.9 43.12 0 0 0 1.971</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.43 0.43 0.43</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol61_tronco">
+        <pose>31.9 43.12 1.29 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.58</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol62_branch">
+        <pose>-8.2 33.5 0 0 0 4.369</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.566 0.566 0.566</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol62_bark">
+        <pose>-8.2 33.5 0 0 0 4.369</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.566 0.566 0.566</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol62_tronco">
+        <pose>-8.2 33.5 1.698 0 0 0</pose>
+        <geometry><cylinder><radius>0.20</radius><length>3.40</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol63_branch">
+        <pose>1.8 33.5 0 0 0 3.735</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.566 0.566 0.566</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol63_bark">
+        <pose>1.8 33.5 0 0 0 3.735</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.566 0.566 0.566</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol63_tronco">
+        <pose>1.8 33.5 1.698 0 0 0</pose>
+        <geometry><cylinder><radius>0.20</radius><length>3.40</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol64_branch">
+        <pose>-8.2 28.5 0 0 0 3.644</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.566 0.566 0.566</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol64_bark">
+        <pose>-8.2 28.5 0 0 0 3.644</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.566 0.566 0.566</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol64_tronco">
+        <pose>-8.2 28.5 1.698 0 0 0</pose>
+        <geometry><cylinder><radius>0.20</radius><length>3.40</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol65_branch">
+        <pose>6.8 28.5 0 0 0 2.866</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.566 0.566 0.566</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol65_bark">
+        <pose>6.8 28.5 0 0 0 2.866</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.566 0.566 0.566</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol65_tronco">
+        <pose>6.8 28.5 1.698 0 0 0</pose>
+        <geometry><cylinder><radius>0.20</radius><length>3.40</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol66_branch">
+        <pose>-56.21 31.98 0 0 0 5.278</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.769 0.769 0.769</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol66_bark">
+        <pose>-56.21 31.98 0 0 0 5.278</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.769 0.769 0.769</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol66_tronco">
+        <pose>-56.21 31.98 2.307 0 0 0</pose>
+        <geometry><cylinder><radius>0.27</radius><length>4.61</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol67_branch">
+        <pose>-66.79 27.04 0 0 0 5.936</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.736 0.736 0.736</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol67_bark">
+        <pose>-66.79 27.04 0 0 0 5.936</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.736 0.736 0.736</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol67_tronco">
+        <pose>-66.79 27.04 2.208 0 0 0</pose>
+        <geometry><cylinder><radius>0.26</radius><length>4.42</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol68_branch">
+        <pose>-56.71 24.35 0 0 0 2.979</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.619 0.619 0.619</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol68_bark">
+        <pose>-56.71 24.35 0 0 0 2.979</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.619 0.619 0.619</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol68_tronco">
+        <pose>-56.71 24.35 1.857 0 0 0</pose>
+        <geometry><cylinder><radius>0.22</radius><length>3.71</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol69_branch">
+        <pose>-80.44 -6.55 0 0 0 4.173</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.613 0.613 0.613</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol69_bark">
+        <pose>-80.44 -6.55 0 0 0 4.173</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.613 0.613 0.613</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol69_tronco">
+        <pose>-80.44 -6.55 1.839 0 0 0</pose>
+        <geometry><cylinder><radius>0.21</radius><length>3.68</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol70_branch">
+        <pose>-85.53 -8.38 0 0 0 0.381</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.53 0.53 0.53</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol70_bark">
+        <pose>-85.53 -8.38 0 0 0 0.381</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.53 0.53 0.53</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol70_tronco">
+        <pose>-85.53 -8.38 1.59 0 0 0</pose>
+        <geometry><cylinder><radius>0.19</radius><length>3.18</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol71_branch">
+        <pose>-70.77 -10.02 0 0 0 4.408</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.508 1.508 1.508</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol71_bark">
+        <pose>-70.77 -10.02 0 0 0 4.408</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.508 1.508 1.508</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol71_tronco">
+        <pose>-70.77 -10.02 4.524 0 0 0</pose>
+        <geometry><cylinder><radius>0.53</radius><length>9.05</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol72_branch">
+        <pose>-82.58 -12.21 0 0 0 4.066</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.077 1.077 1.077</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol72_bark">
+        <pose>-82.58 -12.21 0 0 0 4.066</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.077 1.077 1.077</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol72_tronco">
+        <pose>-82.58 -12.21 3.231 0 0 0</pose>
+        <geometry><cylinder><radius>0.38</radius><length>6.46</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol73_branch">
+        <pose>-93.53 -14.86 0 0 0 6.24</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.168 1.168 1.168</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol73_bark">
+        <pose>-93.53 -14.86 0 0 0 6.24</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.168 1.168 1.168</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol73_tronco">
+        <pose>-93.53 -14.86 3.5039999999999996 0 0 0</pose>
+        <geometry><cylinder><radius>0.41</radius><length>7.01</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol74_branch">
+        <pose>-73.63 -20.96 0 0 0 5.164</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>2.007 2.007 2.007</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol74_bark">
+        <pose>-73.63 -20.96 0 0 0 5.164</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>2.007 2.007 2.007</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol74_tronco">
+        <pose>-73.63 -20.96 6.021000000000001 0 0 0</pose>
+        <geometry><cylinder><radius>0.70</radius><length>12.04</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol75_branch">
+        <pose>-53.35 -22.03 0 0 0 1.788</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.734 1.734 1.734</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol75_bark">
+        <pose>-53.35 -22.03 0 0 0 1.788</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.734 1.734 1.734</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol75_tronco">
+        <pose>-53.35 -22.03 5.202 0 0 0</pose>
+        <geometry><cylinder><radius>0.61</radius><length>10.40</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol76_branch">
+        <pose>-48.62 -25.0 0 0 0 2.424</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.785 1.785 1.785</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol76_bark">
+        <pose>-48.62 -25.0 0 0 0 2.424</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.785 1.785 1.785</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol76_tronco">
+        <pose>-48.62 -25.0 5.3549999999999995 0 0 0</pose>
+        <geometry><cylinder><radius>0.62</radius><length>10.71</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol77_branch">
+        <pose>-83.97 -26.3 0 0 0 4.201</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>2.382 2.382 2.382</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol77_bark">
+        <pose>-83.97 -26.3 0 0 0 4.201</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>2.382 2.382 2.382</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol77_tronco">
+        <pose>-83.97 -26.3 7.146000000000001 0 0 0</pose>
+        <geometry><cylinder><radius>0.83</radius><length>14.29</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol78_branch">
+        <pose>-64.29 -24.88 0 0 0 0.142</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.444 1.444 1.444</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol78_bark">
+        <pose>-64.29 -24.88 0 0 0 0.142</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.444 1.444 1.444</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol78_tronco">
+        <pose>-64.29 -24.88 4.332 0 0 0</pose>
+        <geometry><cylinder><radius>0.51</radius><length>8.66</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol79_branch">
+        <pose>-35.95 -33.6 0 0 0 2.901</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>2.663 2.663 2.663</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol79_bark">
+        <pose>-35.95 -33.6 0 0 0 2.901</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>2.663 2.663 2.663</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol79_tronco">
+        <pose>-35.95 -33.6 7.988999999999999 0 0 0</pose>
+        <geometry><cylinder><radius>0.93</radius><length>15.98</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol80_branch">
+        <pose>-29.25 -30.04 0 0 0 1.056</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>2.106 2.106 2.106</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol80_bark">
+        <pose>-29.25 -30.04 0 0 0 1.056</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>2.106 2.106 2.106</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol80_tronco">
+        <pose>-29.25 -30.04 6.318 0 0 0</pose>
+        <geometry><cylinder><radius>0.74</radius><length>12.64</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol81_branch">
+        <pose>-66.74 -32.49 0 0 0 0.736</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>2.141 2.141 2.141</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol81_bark">
+        <pose>-66.74 -32.49 0 0 0 0.736</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>2.141 2.141 2.141</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol81_tronco">
+        <pose>-66.74 -32.49 6.423 0 0 0</pose>
+        <geometry><cylinder><radius>0.75</radius><length>12.85</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol82_branch">
+        <pose>-45.16 -36.56 0 0 0 0.37</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.499 1.499 1.499</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol82_bark">
+        <pose>-45.16 -36.56 0 0 0 0.37</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.499 1.499 1.499</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol82_tronco">
+        <pose>-45.16 -36.56 4.497 0 0 0</pose>
+        <geometry><cylinder><radius>0.52</radius><length>8.99</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol83_branch">
+        <pose>-84.71 -35.67 0 0 0 4.827</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.403 1.403 1.403</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol83_bark">
+        <pose>-84.71 -35.67 0 0 0 4.827</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.403 1.403 1.403</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol83_tronco">
+        <pose>-84.71 -35.67 4.209 0 0 0</pose>
+        <geometry><cylinder><radius>0.49</radius><length>8.42</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol84_branch">
+        <pose>-62.34 -37.19 0 0 0 0.813</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.311 1.311 1.311</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol84_bark">
+        <pose>-62.34 -37.19 0 0 0 0.813</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.311 1.311 1.311</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol84_tronco">
+        <pose>-62.34 -37.19 3.933 0 0 0</pose>
+        <geometry><cylinder><radius>0.46</radius><length>7.87</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol85_branch">
+        <pose>-72.84 -39.81 0 0 0 1.556</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.998 1.998 1.998</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol85_bark">
+        <pose>-72.84 -39.81 0 0 0 1.556</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.998 1.998 1.998</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol85_tronco">
+        <pose>-72.84 -39.81 5.994 0 0 0</pose>
+        <geometry><cylinder><radius>0.70</radius><length>11.99</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol86_branch">
+        <pose>-64.0 -40.7 0 0 0 2.456</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol86_bark">
+        <pose>-64.0 -40.7 0 0 0 2.456</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol86_tronco">
+        <pose>-64.0 -40.7 4.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.52</radius><length>9.00</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol87_branch">
+        <pose>-59.0 -40.7 0 0 0 5.475</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol87_bark">
+        <pose>-59.0 -40.7 0 0 0 5.475</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol87_tronco">
+        <pose>-59.0 -40.7 4.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.52</radius><length>9.00</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol88_branch">
+        <pose>-64.0 -45.7 0 0 0 0.506</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol88_bark">
+        <pose>-64.0 -45.7 0 0 0 0.506</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol88_tronco">
+        <pose>-64.0 -45.7 4.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.52</radius><length>9.00</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol89_branch">
+        <pose>-85.63 -42.38 0 0 0 2.822</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.175 1.175 1.175</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol89_bark">
+        <pose>-85.63 -42.38 0 0 0 2.822</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.175 1.175 1.175</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol89_tronco">
+        <pose>-85.63 -42.38 3.5250000000000004 0 0 0</pose>
+        <geometry><cylinder><radius>0.41</radius><length>7.05</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol90_branch">
+        <pose>-45.09 -44.51 0 0 0 3.452</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.734 1.734 1.734</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol90_bark">
+        <pose>-45.09 -44.51 0 0 0 3.452</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.734 1.734 1.734</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol90_tronco">
+        <pose>-45.09 -44.51 5.202 0 0 0</pose>
+        <geometry><cylinder><radius>0.61</radius><length>10.40</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol91_branch">
+        <pose>-96.6 -50.65 0 0 0 5.55</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>2.496 2.496 2.496</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol91_bark">
+        <pose>-96.6 -50.65 0 0 0 5.55</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>2.496 2.496 2.496</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol91_tronco">
+        <pose>-96.6 -50.65 7.4879999999999995 0 0 0</pose>
+        <geometry><cylinder><radius>0.87</radius><length>14.98</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol92_branch">
+        <pose>-65.46 -49.85 0 0 0 5.148</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.326 1.326 1.326</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol92_bark">
+        <pose>-65.46 -49.85 0 0 0 5.148</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.326 1.326 1.326</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol92_tronco">
+        <pose>-65.46 -49.85 3.978 0 0 0</pose>
+        <geometry><cylinder><radius>0.46</radius><length>7.96</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol93_branch">
+        <pose>27.65 -48.85 0 0 0 5.429</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.42 0.42 0.42</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol93_bark">
+        <pose>27.65 -48.85 0 0 0 5.429</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.42 0.42 0.42</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol93_tronco">
+        <pose>27.65 -48.85 1.26 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.52</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol94_branch">
+        <pose>-35.34 -50.47 0 0 0 1.749</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.144 1.144 1.144</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol94_bark">
+        <pose>-35.34 -50.47 0 0 0 1.749</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.144 1.144 1.144</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol94_tronco">
+        <pose>-35.34 -50.47 3.4319999999999995 0 0 0</pose>
+        <geometry><cylinder><radius>0.40</radius><length>6.86</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol95_branch">
+        <pose>31.29 -52.03 0 0 0 2.609</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.547 0.547 0.547</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol95_bark">
+        <pose>31.29 -52.03 0 0 0 2.609</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.547 0.547 0.547</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol95_tronco">
+        <pose>31.29 -52.03 1.641 0 0 0</pose>
+        <geometry><cylinder><radius>0.19</radius><length>3.28</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol96_branch">
+        <pose>-51.52 -51.21 0 0 0 2.254</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.317 1.317 1.317</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol96_bark">
+        <pose>-51.52 -51.21 0 0 0 2.254</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.317 1.317 1.317</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol96_tronco">
+        <pose>-51.52 -51.21 3.9509999999999996 0 0 0</pose>
+        <geometry><cylinder><radius>0.46</radius><length>7.90</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol97_branch">
+        <pose>-80.5 -53.5 0 0 0 5.556</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol97_bark">
+        <pose>-80.5 -53.5 0 0 0 5.556</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol97_tronco">
+        <pose>-80.5 -53.5 4.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.52</radius><length>9.00</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol98_branch">
+        <pose>-75.5 -53.5 0 0 0 6.018</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol98_bark">
+        <pose>-75.5 -53.5 0 0 0 6.018</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol98_tronco">
+        <pose>-75.5 -53.5 4.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.52</radius><length>9.00</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol99_branch">
+        <pose>-85.5 -58.5 0 0 0 0.948</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol99_bark">
+        <pose>-85.5 -58.5 0 0 0 0.948</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol99_tronco">
+        <pose>-85.5 -58.5 4.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.52</radius><length>9.00</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol100_branch">
+        <pose>-75.5 -58.5 0 0 0 1.107</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol100_bark">
+        <pose>-75.5 -58.5 0 0 0 1.107</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol100_tronco">
+        <pose>-75.5 -58.5 4.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.52</radius><length>9.00</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol101_branch">
+        <pose>-85.5 -63.5 0 0 0 1.457</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol101_bark">
+        <pose>-85.5 -63.5 0 0 0 1.457</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol101_tronco">
+        <pose>-85.5 -63.5 4.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.52</radius><length>9.00</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol102_branch">
+        <pose>-75.5 -63.5 0 0 0 1.466</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol102_bark">
+        <pose>-75.5 -63.5 0 0 0 1.466</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.5 1.5 1.5</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol102_tronco">
+        <pose>-75.5 -63.5 4.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.52</radius><length>9.00</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol103_branch">
+        <pose>-32.79 -52.28 0 0 0 3.047</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.077 1.077 1.077</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol103_bark">
+        <pose>-32.79 -52.28 0 0 0 3.047</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.077 1.077 1.077</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol103_tronco">
+        <pose>-32.79 -52.28 3.231 0 0 0</pose>
+        <geometry><cylinder><radius>0.38</radius><length>6.46</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol104_branch">
+        <pose>-43.66 -58.5 0 0 0 3.702</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>2.322 2.322 2.322</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol104_bark">
+        <pose>-43.66 -58.5 0 0 0 3.702</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>2.322 2.322 2.322</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol104_tronco">
+        <pose>-43.66 -58.5 6.966 0 0 0</pose>
+        <geometry><cylinder><radius>0.81</radius><length>13.93</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol105_branch">
+        <pose>29.61 -56.7 0 0 0 1.651</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.44 0.44 0.44</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol105_bark">
+        <pose>29.61 -56.7 0 0 0 1.651</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.44 0.44 0.44</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol105_tronco">
+        <pose>29.61 -56.7 1.32 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>2.64</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol106_branch">
+        <pose>-36.55 -58.69 0 0 0 0.026</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.18 1.18 1.18</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol106_bark">
+        <pose>-36.55 -58.69 0 0 0 0.026</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.18 1.18 1.18</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol106_tronco">
+        <pose>-36.55 -58.69 3.54 0 0 0</pose>
+        <geometry><cylinder><radius>0.41</radius><length>7.08</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol107_branch">
+        <pose>-92.55 -61.8 0 0 0 2.632</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.983 1.983 1.983</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol107_bark">
+        <pose>-92.55 -61.8 0 0 0 2.632</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.983 1.983 1.983</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol107_tronco">
+        <pose>-92.55 -61.8 5.949 0 0 0</pose>
+        <geometry><cylinder><radius>0.69</radius><length>11.90</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol108_branch">
+        <pose>-40.84 -66.25 0 0 0 2.32</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.851 1.851 1.851</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol108_bark">
+        <pose>-40.84 -66.25 0 0 0 2.32</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.851 1.851 1.851</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol108_tronco">
+        <pose>-40.84 -66.25 5.553 0 0 0</pose>
+        <geometry><cylinder><radius>0.65</radius><length>11.11</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol109_branch">
+        <pose>-52.29 -65.37 0 0 0 3.558</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>2.587 2.587 2.587</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol109_bark">
+        <pose>-52.29 -65.37 0 0 0 3.558</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>2.587 2.587 2.587</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol109_tronco">
+        <pose>-52.29 -65.37 7.761000000000001 0 0 0</pose>
+        <geometry><cylinder><radius>0.91</radius><length>15.52</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol110_branch">
+        <pose>-65.15 -69.12 0 0 0 5.988</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.379 1.379 1.379</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol110_bark">
+        <pose>-65.15 -69.12 0 0 0 5.988</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.379 1.379 1.379</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol110_tronco">
+        <pose>-65.15 -69.12 4.1370000000000005 0 0 0</pose>
+        <geometry><cylinder><radius>0.48</radius><length>8.27</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol111_branch">
+        <pose>-61.62 -71.51 0 0 0 4.338</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.075 1.075 1.075</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol111_bark">
+        <pose>-61.62 -71.51 0 0 0 4.338</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.075 1.075 1.075</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol111_tronco">
+        <pose>-61.62 -71.51 3.2249999999999996 0 0 0</pose>
+        <geometry><cylinder><radius>0.38</radius><length>6.45</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol112_branch">
+        <pose>-90.7 -74.12 0 0 0 3.239</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.131 1.131 1.131</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol112_bark">
+        <pose>-90.7 -74.12 0 0 0 3.239</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.131 1.131 1.131</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol112_tronco">
+        <pose>-90.7 -74.12 3.393 0 0 0</pose>
+        <geometry><cylinder><radius>0.40</radius><length>6.79</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol113_branch">
+        <pose>-54.69 -77.03 0 0 0 3.88</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>2.409 2.409 2.409</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol113_bark">
+        <pose>-54.69 -77.03 0 0 0 3.88</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>2.409 2.409 2.409</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol113_tronco">
+        <pose>-54.69 -77.03 7.226999999999999 0 0 0</pose>
+        <geometry><cylinder><radius>0.84</radius><length>14.45</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol114_branch">
+        <pose>-72.13 -74.31 0 0 0 4.249</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.318 1.318 1.318</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol114_bark">
+        <pose>-72.13 -74.31 0 0 0 4.249</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.318 1.318 1.318</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol114_tronco">
+        <pose>-72.13 -74.31 3.954 0 0 0</pose>
+        <geometry><cylinder><radius>0.46</radius><length>7.91</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol115_branch">
+        <pose>-69.07 -76.96 0 0 0 0.339</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.382 1.382 1.382</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol115_bark">
+        <pose>-69.07 -76.96 0 0 0 0.339</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.382 1.382 1.382</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol115_tronco">
+        <pose>-69.07 -76.96 4.146 0 0 0</pose>
+        <geometry><cylinder><radius>0.48</radius><length>8.29</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol116_branch">
+        <pose>-64.45 -77.13 0 0 0 5.652</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.184 1.184 1.184</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol116_bark">
+        <pose>-64.45 -77.13 0 0 0 5.652</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.184 1.184 1.184</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol116_tronco">
+        <pose>-64.45 -77.13 3.5519999999999996 0 0 0</pose>
+        <geometry><cylinder><radius>0.41</radius><length>7.10</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol117_branch">
+        <pose>-81.37 -78.44 0 0 0 4.901</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.62 1.62 1.62</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol117_bark">
+        <pose>-81.37 -78.44 0 0 0 4.901</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.62 1.62 1.62</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol117_tronco">
+        <pose>-81.37 -78.44 4.86 0 0 0</pose>
+        <geometry><cylinder><radius>0.57</radius><length>9.72</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol118_branch">
+        <pose>-48.18 -79.76 0 0 0 5.495</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.129 1.129 1.129</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol118_bark">
+        <pose>-48.18 -79.76 0 0 0 5.495</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.129 1.129 1.129</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol118_tronco">
+        <pose>-48.18 -79.76 3.387 0 0 0</pose>
+        <geometry><cylinder><radius>0.40</radius><length>6.77</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol119_branch">
+        <pose>-11.93 -80.3 0 0 0 5.013</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.65 0.65 0.65</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol119_bark">
+        <pose>-11.93 -80.3 0 0 0 5.013</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.65 0.65 0.65</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol119_tronco">
+        <pose>-11.93 -80.3 1.9500000000000002 0 0 0</pose>
+        <geometry><cylinder><radius>0.23</radius><length>3.90</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol120_branch">
+        <pose>-65.07 -79.97 0 0 0 2.465</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.087 1.087 1.087</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol120_bark">
+        <pose>-65.07 -79.97 0 0 0 2.465</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.087 1.087 1.087</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol120_tronco">
+        <pose>-65.07 -79.97 3.261 0 0 0</pose>
+        <geometry><cylinder><radius>0.38</radius><length>6.52</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol121_branch">
+        <pose>-84.69 -83.67 0 0 0 2.507</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.209 1.209 1.209</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol121_bark">
+        <pose>-84.69 -83.67 0 0 0 2.507</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.209 1.209 1.209</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol121_tronco">
+        <pose>-84.69 -83.67 3.6270000000000002 0 0 0</pose>
+        <geometry><cylinder><radius>0.42</radius><length>7.25</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol122_branch">
+        <pose>-34.49 -85.53 0 0 0 0.651</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.639 1.639 1.639</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol122_bark">
+        <pose>-34.49 -85.53 0 0 0 0.651</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.639 1.639 1.639</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol122_tronco">
+        <pose>-34.49 -85.53 4.917 0 0 0</pose>
+        <geometry><cylinder><radius>0.57</radius><length>9.83</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol123_branch">
+        <pose>-9.14 -91.81 0 0 0 3.985</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.718 0.718 0.718</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol123_bark">
+        <pose>-9.14 -91.81 0 0 0 3.985</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.718 0.718 0.718</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol123_tronco">
+        <pose>-9.14 -91.81 2.154 0 0 0</pose>
+        <geometry><cylinder><radius>0.25</radius><length>4.31</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol124_branch">
+        <pose>-55.88 -94.03 0 0 0 0.391</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.841 1.841 1.841</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol124_bark">
+        <pose>-55.88 -94.03 0 0 0 0.391</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.841 1.841 1.841</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol124_tronco">
+        <pose>-55.88 -94.03 5.523 0 0 0</pose>
+        <geometry><cylinder><radius>0.64</radius><length>11.05</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol125_branch">
+        <pose>-64.32 -94.01 0 0 0 0.423</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.366 1.366 1.366</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol125_bark">
+        <pose>-64.32 -94.01 0 0 0 0.423</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.366 1.366 1.366</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol125_tronco">
+        <pose>-64.32 -94.01 4.098000000000001 0 0 0</pose>
+        <geometry><cylinder><radius>0.48</radius><length>8.20</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol126_branch">
+        <pose>-74.6 -94.69 0 0 0 1.312</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.377 1.377 1.377</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol126_bark">
+        <pose>-74.6 -94.69 0 0 0 1.312</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.377 1.377 1.377</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol126_tronco">
+        <pose>-74.6 -94.69 4.131 0 0 0</pose>
+        <geometry><cylinder><radius>0.48</radius><length>8.26</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol127_branch">
+        <pose>-47.76 -95.97 0 0 0 1.02</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.804 1.804 1.804</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol127_bark">
+        <pose>-47.76 -95.97 0 0 0 1.02</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.804 1.804 1.804</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol127_tronco">
+        <pose>-47.76 -95.97 5.412 0 0 0</pose>
+        <geometry><cylinder><radius>0.63</radius><length>10.82</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol128_branch">
+        <pose>-41.85 -96.13 0 0 0 2.137</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.211 1.211 1.211</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol128_bark">
+        <pose>-41.85 -96.13 0 0 0 2.137</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.211 1.211 1.211</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol128_tronco">
+        <pose>-41.85 -96.13 3.633 0 0 0</pose>
+        <geometry><cylinder><radius>0.42</radius><length>7.27</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol129_branch">
+        <pose>-81.17 -99.17 0 0 0 0.33</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.609 1.609 1.609</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol129_bark">
+        <pose>-81.17 -99.17 0 0 0 0.33</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.609 1.609 1.609</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol129_tronco">
+        <pose>-81.17 -99.17 4.827 0 0 0</pose>
+        <geometry><cylinder><radius>0.56</radius><length>9.65</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol130_branch">
+        <pose>-24.97 -99.31 0 0 0 0.001</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.545 0.545 0.545</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol130_bark">
+        <pose>-24.97 -99.31 0 0 0 0.001</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.545 0.545 0.545</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol130_tronco">
+        <pose>-24.97 -99.31 1.6350000000000002 0 0 0</pose>
+        <geometry><cylinder><radius>0.19</radius><length>3.27</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol131_branch">
+        <pose>-5.1 -100.44 0 0 0 0.95</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Branch</name></submesh><scale>0.668 0.668 0.668</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/branch_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol131_bark">
+        <pose>-5.1 -100.44 0 0 0 0.95</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/oak_tree.dae</uri><submesh><name>Bark</name></submesh><scale>0.668 0.668 0.668</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/oak/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol131_tronco">
+        <pose>-5.1 -100.44 2.004 0 0 0</pose>
+        <geometry><cylinder><radius>0.23</radius><length>4.01</length></cylinder></geometry>
+      </collision>
+      <visual name="arbol132_branch">
+        <pose>-95.19 -99.92 0 0 0 0.638</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Branch</name></submesh><scale>1.103 1.103 1.103</scale></mesh></geometry>
+        <material><double_sided>true</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/branch_2_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <visual name="arbol132_bark">
+        <pose>-95.19 -99.92 0 0 0 0.638</pose>
+        <geometry><mesh><uri>model://campo_pruebas/meshes/pine_tree.dae</uri><submesh><name>Bark</name></submesh><scale>1.103 1.103 1.103</scale></mesh></geometry>
+        <material><double_sided>false</double_sided><diffuse>1 1 1</diffuse>
+          <pbr><metal><albedo_map>model://campo_pruebas/materials/textures/pine/bark_diffuse.png</albedo_map></metal></pbr></material>
+      </visual>
+      <collision name="arbol132_tronco">
+        <pose>-95.19 -99.92 3.309 0 0 0</pose>
+        <geometry><cylinder><radius>0.39</radius><length>6.62</length></cylinder></geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

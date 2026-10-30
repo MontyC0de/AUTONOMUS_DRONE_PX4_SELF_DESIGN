@@ -203,7 +203,9 @@ AUTONOMUS_DRONE_PX4_SELF_DESIGN/
 ├── simulation/
 │   ├── models/mi_drone/      # Motor plugins (BR2205 thrust model)
 │   ├── models/mi_drone_base/ # Mass, inertia, collisions, sensors, CAD meshes
-│   └── tools/                # mass_model.py (inertia), decimate_frame.py (CAD mesh)
+│   ├── models/campo_pruebas/ # Real test site: orthophoto ground and 3D trees
+│   ├── worlds/               # campo_pruebas.sdf (georeferenced at the takeoff point)
+│   └── tools/                # mass_model.py, decimate_frame.py, campo_pruebas.py
 │
 ├── scripts/
 │   └── setup_sim.sh          # Links the models into the PX4 tree
@@ -254,6 +256,30 @@ python mavsdk_commands/vuelo_basico.py
 ```bash
 ./QGroundControl-x86_64.AppImage
 ```
+
+### Real Test-Site World
+
+The world `campo_pruebas` reproduces the field where the real drone flies (takeoff point 36°30'42.4"N 4°41'45.3"W, 20 m AMSL): the world origin is the takeoff point, so PX4 and QGroundControl place the twin at the real GPS coordinates, and the magnetic field is the WMM2025 value for the site.
+
+- Ground: PNOA orthophoto, 204.8 m at 10 cm/px plus 1.6 km of context at 80 cm/px
+- Trees: 133 oaks, pines and shrubs (Gazebo Fuel, CC0) placed over the canopies detected in the orthophoto
+
+```bash
+cd PX4-Autopilot
+PX4_GZ_WORLD=campo_pruebas make px4_sitl gz_mi_drone
+```
+
+To build the world for another site (needs `pip install numpy pillow scipy pyproj pygeomag`):
+
+```bash
+python3 simulation/tools/campo_pruebas.py <lat> <lon> --elevacion <m> && ./scripts/setup_sim.sh
+```
+
+| Follow camera | Top view (origin = takeoff point) |
+|---|---|
+| ![Digital twin over the real test site](docs/img/gemelo_campo_pruebas.jpg) | ![Top view of the test-site world](docs/img/campo_pruebas_cenital.jpg) |
+
+*Orthophoto: PNOA cedido por © Instituto Geográfico Nacional ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).*
 
 ### Simulation Without Graphics
 
