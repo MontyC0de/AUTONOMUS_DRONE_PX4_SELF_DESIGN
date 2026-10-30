@@ -249,14 +249,16 @@ def lanzar_telemetria(drone, estado):
 async def esperar_listo(drone, args, estado):
     """Conecta, arranca la telemetría y comprueba que se puede volar. Devuelve las tareas."""
     print(f"Conectando a {args.conexion} ...")
-    # connect() lanza mavsdk_server como proceso hijo. Con SIGINT ignorado al
-    # crearlo, lo hereda: un Ctrl+C en la terminal ya no lo mata y el script
-    # puede seguir enviando la orden de aterrizar.
-    anterior = signal.signal(signal.SIGINT, signal.SIG_IGN)
+    # connect() lanza mavsdk_server como proceso hijo. Con SIGINT y SIGTERM
+    # ignorados al crearlo, los hereda: un Ctrl+C (o un SIGTERM al grupo de
+    # procesos) ya no lo mata y el script puede seguir enviando la orden de
+    # aterrizar. Se cierra explícitamente al final de run().
+    anteriores = {sig: signal.signal(sig, signal.SIG_IGN) for sig in (signal.SIGINT, signal.SIGTERM)}
     try:
         await drone.connect(system_address=args.conexion)
     finally:
-        signal.signal(signal.SIGINT, anterior)
+        for sig, manejador in anteriores.items():
+            signal.signal(sig, manejador)
     async for s in drone.core.connection_state():
         if s.is_connected:
             print("✅ Conectado a PX4")
@@ -372,7 +374,7 @@ async def run(args):
     try:
         await mision(drone, plan, args)
     finally:
-        # mavsdk_server ignora Ctrl+C (ver esperar_listo), así que se cierra aquí
+        # mavsdk_server ignora SIGINT/SIGTERM (ver esperar_listo), así que se cierra aquí
         drone._stop_mavsdk_server()
 
 

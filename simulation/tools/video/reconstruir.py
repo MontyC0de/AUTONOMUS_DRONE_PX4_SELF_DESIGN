@@ -17,7 +17,9 @@ from scipy.ndimage import median_filter, uniform_filter1d
 F, CX = 690.0, 270.0
 CAM = np.array([3.0, 3.0])          # m E, N of the takeoff point (opposite to the eucalyptus)
 ANCHO = {"verde": 0.42, "cielo": 0.32, "plantilla": 0.35}
-DESPEGUE, T_FIN = 20.5, 272.0       # s in the video
+# Measured on the 60 fps frames: legs leave the shadow at 20.4 s; the video ends
+# at 272.96 s with the drone still airborne
+DESPEGUE, T_FIN = 20.4, 272.96      # s in the video
 
 pista = list(csv.DictReader(open("pista.csv")))
 t = np.array([float(r["t"]) for r in pista])
@@ -98,12 +100,26 @@ def limitar(a):
 e, n = limitar(e), limitar(n)
 e, n = uniform_filter1d(e, 21), uniform_filter1d(n, 21)
 
+# Exact takeoff: on the ground until DESPEGUE, then the fast climb seen in the
+# frames (~2 m in 1.5 s), a minimum-jerk ramp up to the reconstructed height at
+# DESPEGUE + 2.5 s
+suelo = t < DESPEGUE
+e[suelo], n[suelo], h[suelo] = 0.0, 0.0, 0.0
+k = (t >= DESPEGUE) & (t < DESPEGUE + 2.5)
+u = (t[k] - DESPEGUE) / 2.5
+h_obj = h[np.searchsorted(t, DESPEGUE + 2.5)]
+h[k] = h_obj * u ** 3 * (10 - 15 * u + 6 * u ** 2)
+
 keep = t <= T_FIN
 with open("trayectoria_video.csv", "w", newline="") as f:
     wr = csv.writer(f)
     wr.writerow(["t_video", "este", "norte", "altura"])
-    for i in np.nonzero(keep)[0][::5]:          # 2 Hz keyframes
+    idx = np.nonzero(keep)[0][::2]              # 5 Hz keyframes
+    for i in idx:
         wr.writerow([f"{t[i]:.1f}", f"{e[i]:.2f}", f"{n[i]:.2f}", f"{h[i]:.2f}"])
+    # Close exactly at the end of the video
+    i = idx[-1]
+    wr.writerow([f"{T_FIN:.2f}", f"{e[i]:.2f}", f"{n[i]:.2f}", f"{h[i]:.2f}"])
 np.savez("trayectoria_video.npz", t=t[keep], e=e[keep], n=n[keep], h=h[keep])
 print("max dist %.1f m, max h %.1f m" % (np.hypot(e, n)[keep].max(), h[keep].max()))
 vel = np.hypot(np.diff(e), np.diff(n)) / np.diff(t)

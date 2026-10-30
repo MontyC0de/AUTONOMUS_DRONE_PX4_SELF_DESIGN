@@ -297,7 +297,14 @@ It is an approximation (distances roughly ±30 %, a manual correction between 1:
 
 ![Reconstructed trajectory of the real flight](vuelos/real_20250831/trayectoria_video.png)
 
-Replayed in the twin it follows the reconstructed path with **0.38 m RMS** error over 252 s:
+Replayed in the twin with the same timeline it follows the reconstructed path with **0.36 m RMS** error, and lasts the same:
+
+| | Real flight (video) | Digital twin | Difference |
+|---|---|---|---|
+| Takeoff (legs leave the ground) | 0:20.40 | 0:20.60 | +0.20 s |
+| End of the video | 4:32.96 | 4:32.99 | +0.03 s |
+| Flight duration | 4:12.56 | 4:12.39 | −0.17 s |
+
 
 ![Real flight vs digital twin](vuelos/real_20250831/gemelo_vs_video.png)
 
@@ -306,7 +313,7 @@ Replayed in the twin it follows the reconstructed path with **0.38 m RMS** error
 python mavsdk_commands/replay_trayectoria.py vuelos/real_20250831/trayectoria_video.csv
 ```
 
-The replay takes off in OFFBOARD at the same video second as the real drone (0:19.5), follows the path with position, velocity and acceleration feedforward, faces the direction of travel, and finally returns over the takeoff point and lands. To see it from where the phone was, place the Gazebo camera there and track the drone:
+The replay runs on the video clock: after the pre-flight checks it prints `t_video 0:00` (start the recording or the real video there), waits on the ground, arms, takes off at 0:20.4, follows the path with position, velocity and acceleration feedforward facing the direction of travel, stops at the last frame of the video (4:32.96) and lands. PX4's smooth takeoff (`MPC_TKO_RAMP_T`) lifts the drone ~1.7 s after the setpoint starts rising, so the climb is started that much earlier (`--adelanto-despegue`, measured). At the end it prints the measured times against the video's. To see it from where the phone was, place the Gazebo camera there and track the drone:
 
 ```bash
 gz service -s /gui/move_to/pose --reqtype gz.msgs.GUICamera --reptype gz.msgs.Boolean --timeout 3000 \
