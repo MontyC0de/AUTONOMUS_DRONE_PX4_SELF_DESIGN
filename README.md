@@ -282,44 +282,27 @@ python3 simulation/tools/campo_pruebas.py <lat> <lon> --elevacion <m> && ./scrip
 
 *Orthophoto: PNOA cedido por © Instituto Geográfico Nacional ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).*
 
-### Replaying the Real Flight of 31 Aug 2025
+### Real Test Flight in the Twin
 
-The real test flight (manual, RC) was filmed with a phone. Its trajectory was reconstructed from the video and is replayed in the twin with the same timeline, so both can be shown side by side.
-
-**Reconstruction** ([`simulation/tools/video/`](simulation/tools/video), result in [`vuelos/real_20250831/`](vuelos/real_20250831)):
-
-1. **Tracking** (`seguir_dron.py`), 2730 frames at 10 fps: the lime-green props when the drone is close, a very dark blob fully surrounded by sky when it is far; detected in 99 % of the frames.
-2. **Range** from the apparent size (0.32–0.42 m drone, 690 px focal length of the Nothing Phone 2 at 540 px), filtered in log scale.
-3. **Camera yaw** (`giro_camara.py`) by optical flow of the background, anchored to landmarks (eucalyptus stand to the SW, olive-terraced hill to the SE).
-4. **Height** from the elevation above the visible skyline, and **position** in ENU around the takeoff point; speed limited to 6 m/s (`reconstruir.py`).
-
-It is an approximation (distances roughly ±30 %, a manual correction between 1:42 and 2:04 when the drone sits on the far tree line); the timeline is exact. The Pixhawk ULog of that flight would give the exact path.
-
-![Reconstructed trajectory of the real flight](vuelos/real_20250831/trayectoria_video.png)
-
-Replayed in the twin with the same timeline it follows the reconstructed path with **0.36 m RMS** error, and lasts the same:
-
-| | Real flight (video) | Digital twin | Difference |
-|---|---|---|---|
-| Takeoff (legs leave the ground) | 0:20.40 | 0:20.60 | +0.20 s |
-| End of the video | 4:32.96 | 4:32.99 | +0.03 s |
-| Flight duration | 4:12.56 | 4:12.39 | −0.17 s |
-
-
-![Real flight vs digital twin](vuelos/real_20250831/gemelo_vs_video.png)
+The real test flight was autonomous (offboard, run from the Raspberry Pi); that path script is no longer available, only a phone video of the flight. The path was estimated from the video ([`simulation/tools/video/`](simulation/tools/video)) and the twin flies it with the same timing, so both videos can be shown side by side.
 
 ```bash
-# Twin in the test-site world, then:
 python mavsdk_commands/replay_trayectoria.py vuelos/real_20250831/trayectoria_video.csv
 ```
 
-The replay runs on the video clock: after the pre-flight checks it prints `t_video 0:00` (start the recording or the real video there), waits on the ground, arms, takes off at 0:20.4, follows the path with position, velocity and acceleration feedforward facing the direction of travel, stops at the last frame of the video (4:32.96) and lands. PX4's smooth takeoff (`MPC_TKO_RAMP_T`) lifts the drone ~1.7 s after the setpoint starts rising, so the climb is started that much earlier (`--adelanto-despegue`, measured). At the end it prints the measured times against the video's. To see it from where the phone was, place the Gazebo camera there and track the drone:
+The script prints `t_video 0:00` when its clock starts: start the real video there and both take off at 0:20 and end at 4:33.
+
+![Real flight vs digital twin](vuelos/real_20250831/gemelo_vs_video.png)
+
+<details>
+<summary>Gazebo camera at the phone's position</summary>
 
 ```bash
 gz service -s /gui/move_to/pose --reqtype gz.msgs.GUICamera --reptype gz.msgs.Boolean --timeout 3000 \
   --req "pose: {position: {x: 3, y: 3, z: 1.6}, orientation: {w: 0.3822, x: 0.0462, y: 0.0191, z: -0.9227}}"
 gz topic -t /gui/track -m gz.msgs.CameraTrack -p "track_mode: TRACK, track_target: {name: 'mi_drone_0'}, track_pgain: 0.3"
 ```
+</details>
 
 ### Simulation Without Graphics
 

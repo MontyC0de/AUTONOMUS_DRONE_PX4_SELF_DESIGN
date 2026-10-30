@@ -87,7 +87,7 @@ w = np.clip((t - DESPEGUE) / 6.0, 0, 1)
 e, n = e * w, n * w
 e, n = uniform_filter1d(e, 31), uniform_filter1d(n, 31)
 
-# Physical limits: the pilot flew gently; cap horizontal speed at V_MAX with a
+# Physical limits: the offboard flight was gentle; cap horizontal speed at V_MAX with a
 # forward-backward rate limiter (keeps the shape, removes impossible jumps)
 V_MAX, dt = 6.0, t[1] - t[0]
 def limitar(a):

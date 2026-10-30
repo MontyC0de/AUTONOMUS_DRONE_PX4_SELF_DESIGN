@@ -3,9 +3,10 @@
 Reproduce en el dron (gemelo o real) una trayectoria con marcas de tiempo,
 con la misma cronología que el vídeo del vuelo real.
 
-Pensado para el vuelo real del 31/08/2025, reconstruido a partir del vídeo
-(vuelos/real_20250831/trayectoria_video.csv): mismas posiciones, mismas alturas
-y los mismos tiempos, para ponerlos lado a lado.
+Pensado para el vuelo de prueba real (offboard desde la Raspberry), cuya
+trayectoria se ha estimado a partir del vídeo (vuelos/real_20250831/
+trayectoria_video.csv): mismas posiciones, alturas y tiempos, para poner los
+dos vídeos lado a lado.
 
 Reloj: tras los chequeos previos el script marca "t_video 0:00" (arranca ahí la
 grabación o el vídeo real). El dron espera en tierra, arma 3 s antes del
@@ -15,7 +16,7 @@ tiempos medidos en el gemelo frente a los del vídeo.
 
 El CSV tiene columnas t_video, este, norte, altura (m, relativas al despegue).
 Entre muestras se interpola con Catmull-Rom; a PX4 se le envía posición,
-velocidad y aceleración. El dron mira hacia donde avanza, como en vuelo manual.
+velocidad y aceleración. El dron mira hacia donde avanza.
 
 Uso:
     python3 mavsdk_commands/replay_trayectoria.py vuelos/real_20250831/trayectoria_video.csv
