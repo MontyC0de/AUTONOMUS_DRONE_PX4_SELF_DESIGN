@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="helice_ccw"><static>true</static>
+    <link name="l">
+      <visual name="helice"><pose>0 0 0.017 0 0 0</pose>
+        <geometry><mesh><uri>model://mi_drone_base/meshes/ccw.dae</uri></mesh></geometry>
+        <material><ambient>0.30 0.55 0.08 1</ambient><diffuse>0.45 0.85 0.12 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
+      </visual>
+      <visual name="campana">
+        <geometry><mesh><uri>model://mi_drone_base/meshes/rotor.dae</uri></mesh></geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

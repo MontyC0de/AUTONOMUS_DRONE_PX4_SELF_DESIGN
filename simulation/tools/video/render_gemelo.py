@@ -64,7 +64,9 @@ time.sleep(1.0)
 for k, r in enumerate(filas):
     f = lambda c: float(r[c])
     set_pose("dron", f("x"), f("y"), f("z"), f("qw"), f("qx"), f("qy"), f("qz"))
-    set_pose("cam_movil", 2.2, 2.2, 1.5, f("cqw"), f("cqx"), f("cqy"), f("cqz"))
+    for j in range(4):
+        set_pose(f"h{j}", *(f(f"h{j}{c}") for c in ("x", "y", "z", "qw", "qx", "qy", "qz")))
+    set_pose("cam_movil", f("cx"), f("cy"), f("cz"), f("cqw"), f("cqx"), f("cqy"), f("cqz"))
     with lock:
         antes = ultima["stamp"]
     step()   # applies the poses

@@ -119,9 +119,11 @@ async def volar(drone, tray, args, estado, casa, registro, parar, tiempos):
             await drone.action.arm()
             armado = True
             tiempos["armado"] = reloj() - inicio
+            # Referencia de altura al armar: en tierra el barómetro deriva unos cm
+            altura_armado = -(estado["p"][2] - casa[2])
             print(f"  t_video {mmss(tiempos['armado'])}  🔓 armado")
         altura = -(estado["p"][2] - casa[2])
-        if "despegue" not in tiempos and armado and altura > 0.05:
+        if "despegue" not in tiempos and armado and altura - altura_armado > 0.05:
             tiempos["despegue"] = reloj() - inicio
             print(f"  t_video {mmss(tiempos['despegue'])}  🛫 se separa del suelo (5 cm)")
         if "en_aire" not in tiempos and estado.get("en_aire"):

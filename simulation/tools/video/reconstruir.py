@@ -99,6 +99,20 @@ def limitar(a):
 e, n = limitar(e), limitar(n)
 e, n = uniform_filter1d(e, 21), uniform_filter1d(n, 21)
 
+# Flight plan limits: the first excursion stays within 5 m of the takeoff point
+# and the second within 25 m. Far away the drone is only a few pixels wide and the
+# phone was further from the takeoff, so those stretches are scaled down to the
+# limits (timing and heights unchanged, 2 s blends at the edges)
+SALIDAS = [(94.0, 182.0, 5.0), (190.0, 230.0, 25.0)]
+for a, b, limite in SALIDAS:
+    k = (t >= a) & (t <= b)
+    dmax = np.hypot(e[k], n[k]).max()
+    if dmax > limite:
+        rampa = np.clip(np.minimum(t - a, b - t) / 2.0, 0, 1)
+        escala = 1 - (1 - limite / dmax) * rampa
+        e[k] *= escala[k]
+        n[k] *= escala[k]
+
 # Exact takeoff: on the ground until DESPEGUE, then the fast climb seen in the
 # frames (~2 m in 1.5 s), a minimum-jerk ramp up to the reconstructed height at
 # DESPEGUE + 2.5 s
