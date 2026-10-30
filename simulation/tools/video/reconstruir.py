@@ -50,9 +50,8 @@ ok &= ~((t > 233.5) & (t < 236))
 ancho_px = w_px
 fiable = ok & np.isfinite(R) & ((met == "cielo") | ((met == "verde") & (ancho_px >= 20)))
 logR = np.interp(t, t[fiable], np.log(R[fiable]))
-# Manual correction after reviewing the frames: from 1:42 to 2:04 the drone sits
-# on the far tree line (no sky around it, almost no reliable sizes) and is clearly
-# far away, ~45-55 m from the camera
+# From 1:42 to 2:04 the drone sits on the far tree line (no sky around it, almost
+# no reliable sizes); the range is set from the frames, where it is ~45-55 m away
 k = (t >= 100) & (t <= 126)
 logR[k] = np.log(np.interp(t[k], [100, 113, 126], [45.0, 55.0, 50.0]))
 logR = uniform_filter1d(median_filter(logR, size=31), 61)   # 3 s median, 6 s mean

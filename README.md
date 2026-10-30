@@ -81,7 +81,7 @@ The implemented flight scripts demonstrate:
 
 ## Digital Twin Parameters
 
-The Gazebo model `mi_drone` (in [`simulation/models/`](simulation/models)) uses the parameters of the real drone, not the stock PX4 x500. Masses and inertia come from [`simulation/tools/mass_model.py`](simulation/tools/mass_model.py), a lumped-mass model that places every component at its CAD position:
+The Gazebo model `mi_drone` (in [`simulation/models/`](simulation/models)) uses the parameters of the real drone. Masses and inertia come from [`simulation/tools/mass_model.py`](simulation/tools/mass_model.py), a lumped-mass model that places every component at its CAD position:
 
 ```bash
 python3 simulation/tools/mass_model.py
@@ -102,10 +102,6 @@ python3 simulation/tools/mass_model.py
 | Motor constant | 1.278e-6 N/(rad/s)² | T_max / ω_max² |
 | Thrust / weight | 3.9 | 37.3 N / 9.5 N |
 | Hover throttle | 0.419 (predicted) / 0.420 (SITL estimate) | m·g/4 = k·ω² |
-
-| PX4 x500 (previous) | mi_drone (now) |
-|---|---|
-| 2.0 kg, 13" props, motors at ±174 mm | 0.97 kg, 5" props, motors at ±122.8 mm |
 
 ## Prerequisites
 
@@ -239,7 +235,7 @@ make px4_sitl gz_mi_drone
 
 Wait until you see `INFO  [commander] Ready for takeoff!` in the console.
 
-For videos, bring the follow camera closer to the drone (default is 2 m away):
+Closer follow camera (useful for recordings):
 
 ```bash
 PX4_GZ_FOLLOW_OFFSET_X=-0.9 PX4_GZ_FOLLOW_OFFSET_Y=-0.9 PX4_GZ_FOLLOW_OFFSET_Z=0.5 make px4_sitl gz_mi_drone
@@ -258,7 +254,7 @@ python mavsdk_commands/vuelo_basico.py
 ./QGroundControl-x86_64.AppImage
 ```
 
-### Real Test-Site World
+### Test-Site World
 
 The world `campo_pruebas` reproduces the field where the real drone flies (takeoff point 36°30'42.4"N 4°41'45.3"W, 20 m AMSL): the world origin is the takeoff point, so PX4 and QGroundControl place the twin at the real GPS coordinates, and the magnetic field is the WMM2025 value for the site.
 
@@ -270,32 +266,24 @@ cd PX4-Autopilot
 PX4_GZ_WORLD=campo_pruebas make px4_sitl gz_mi_drone
 ```
 
-To build the world for another site (needs `pip install numpy pillow scipy pyproj pygeomag`):
-
-```bash
-python3 simulation/tools/campo_pruebas.py <lat> <lon> --elevacion <m> && ./scripts/setup_sim.sh
-```
-
 | Follow camera | Top view (origin = takeoff point) |
 |---|---|
 | ![Digital twin over the real test site](docs/img/gemelo_campo_pruebas.jpg) | ![Top view of the test-site world](docs/img/campo_pruebas_cenital.jpg) |
 
 *Orthophoto: PNOA cedido por © Instituto Geográfico Nacional ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).*
 
-### Real Test Flight in the Twin
+### Test Flight
 
-The real test flight was autonomous (offboard, run from the Raspberry Pi); that path script is no longer available, only a phone video of the flight. The path was estimated from the video ([`simulation/tools/video/`](simulation/tools/video)) and the twin flies it with the same timing, so both videos can be shown side by side.
+A test flight at the test site was recorded on video. Its trajectory was obtained from the recording and reproduced in the digital twin with the same timing, so both can be compared side by side.
 
 ```bash
 python mavsdk_commands/replay_trayectoria.py vuelos/real_20250831/trayectoria_video.csv
 ```
 
-The script prints `t_video 0:00` when its clock starts: start the real video there and both take off at 0:20 and end at 4:33.
-
 ![Real flight vs digital twin](vuelos/real_20250831/gemelo_vs_video.png)
 
 <details>
-<summary>Gazebo camera at the phone's position</summary>
+<summary>Camera view from the recording position</summary>
 
 ```bash
 gz service -s /gui/move_to/pose --reqtype gz.msgs.GUICamera --reptype gz.msgs.Boolean --timeout 3000 \
@@ -388,8 +376,6 @@ python mavsdk_commands/graficas_vuelo.py sim.csv real.csv --etiquetas "Gemelo" "
 | Figure-eight | 58.3 s | 13 cm | 31 cm | 2.07 m/s |
 | Helix | 47.3 s | 21 cm | 39 cm | 2.12 m/s |
 | Whole mission | 217 s | 17 cm | 39 cm | max tilt 10° |
-
-The error is measured from the MAVLink telemetry, which adds ~3 cm of latency; the PX4 log (ULog) of the same flight gives 15 cm RMS.
 
 ![Top view of each figure, reference vs digital twin](vuelos/mision_20261030_175030/planta.png)
 
