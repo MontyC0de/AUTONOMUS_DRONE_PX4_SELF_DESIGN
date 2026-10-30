@@ -243,6 +243,8 @@
             <uri>model://mi_drone_base/meshes/ccw.dae</uri>
           </mesh>
         </geometry>
+        <!-- Lime-green props, as on the real drone -->
+        <material><ambient>0.30 0.55 0.08 1</ambient><diffuse>0.45 0.85 0.12 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
       </visual>
       <visual name="rotor_0_visual_motor_bell">
         <pose>0 0 0 0 0 0</pose>
@@ -310,6 +312,8 @@
             <uri>model://mi_drone_base/meshes/ccw.dae</uri>
           </mesh>
         </geometry>
+        <!-- Lime-green props, as on the real drone -->
+        <material><ambient>0.30 0.55 0.08 1</ambient><diffuse>0.45 0.85 0.12 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
       </visual>
       <visual name="rotor_1_visual_motor_top">
         <pose>0 0 0 0 0 0</pose>
@@ -377,6 +381,8 @@
             <uri>model://mi_drone_base/meshes/cw.dae</uri>
           </mesh>
         </geometry>
+        <!-- Lime-green props, as on the real drone -->
+        <material><ambient>0.30 0.55 0.08 1</ambient><diffuse>0.45 0.85 0.12 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
       </visual>
       <visual name="rotor_2_visual_motor_top">
         <pose>0 0 0 0 0 0</pose>
@@ -444,6 +450,8 @@
             <uri>model://mi_drone_base/meshes/cw.dae</uri>
           </mesh>
         </geometry>
+        <!-- Lime-green props, as on the real drone -->
+        <material><ambient>0.30 0.55 0.08 1</ambient><diffuse>0.45 0.85 0.12 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
       </visual>
       <visual name="rotor_3_visual_motor_top">
         <pose>0 0 0 0 0 0</pose>

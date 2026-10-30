@@ -4,7 +4,7 @@ Genera el mundo de Gazebo del campo de pruebas real a partir de sus coordenadas.
 
 - Suelo: ortofoto PNOA del IGN (CC BY 4.0, © Instituto Geográfico Nacional)
   en dos capas: detalle de 204.8 m a 10 cm/píxel y contexto de 1.6 km a 80 cm/píxel.
-- Árboles: robles y pinos 3D (Gazebo Fuel, CC0) colocados sobre las copas
+- Árboles: encinas y eucaliptos 3D (malla Oak tree de Gazebo Fuel, CC0) sobre las copas
   detectadas en la ortofoto.
 - Mundo: origen en el punto de despegue, con su latitud, longitud, altitud y
   campo magnético (WMM2025), así PX4 y QGroundControl sitúan el dron en el sitio real.
@@ -39,7 +39,8 @@ CAPAS = {"detalle": (204.8, 2048, 0.0), "contexto": (1638.4, 2048, -0.3)}  # lad
 
 DESPLAZAMIENTO_ESTE = 2.5   # m, del lado en sombra (oeste) al centro de la copa
 PASO = 5.0                  # m entre árboles dentro de una copa continua
-OAK_ANCHO, PINE_ANCHO = 10.6, 3.2   # ancho de copa de las mallas de Fuel [m]
+OAK_ANCHO, OAK_ALTO = 10.6, 6.5     # copa y altura de la malla Oak tree [m]
+EUCALIPTO_ALTO = 15.0              # m, los de la pinada del suroeste
 
 
 def descargar_ortofotos(x, y, carpeta):
@@ -50,8 +51,12 @@ def descargar_ortofotos(x, y, carpeta):
         print(f"ortofoto {nombre}: {lado} m, {lado / px * 100:.0f} cm/px")
 
 
-def detectar_arboles(ruta, mpp, tipo_en):
-    """Copas = zonas oscuras no marrones; se descartan las que caen en asfalto."""
+def detectar_arboles(ruta, mpp, tipo_en, paso_m=PASO, area_min=4.0, excluir=0.0, radio=1e9):
+    """Copas = zonas oscuras no marrones; se descartan las que caen en asfalto.
+
+    excluir: semilado [m] del cuadrado central que ya cubre otra capa;
+    radio: distancia máxima [m] al despegue.
+    """
     img = Image.open(ruta).convert("RGB")
     a = np.asarray(img).astype(float)
     v = a.mean(axis=2)
@@ -69,15 +74,15 @@ def detectar_arboles(ruta, mpp, tipo_en):
     for i, sl in enumerate(ndimage.find_objects(lab), start=1):
         blob = lab[sl] == i
         area = blob.sum() * mpp ** 2
-        if area < 4:
+        if area < area_min:
             continue
-        if area < 60:
+        if area < max(60, 3 * paso_m ** 2):
             cy, cx = ndimage.center_of_mass(blob)
             puntos = [(cx + sl[1].start, cy + sl[0].start, 2 * math.sqrt(area / math.pi) + 2)]
         else:
-            paso = int(round(PASO / mpp))
+            paso = int(round(paso_m / mpp))
             ys, xs = np.mgrid[sl[0].start:sl[0].stop:paso, sl[1].start:sl[1].stop:paso]
-            puntos = [(xx, yy, PASO + 1) for yy, xx in zip(ys.ravel() + paso // 2, xs.ravel() + paso // 2)
+            puntos = [(xx, yy, paso_m + 1) for yy, xx in zip(ys.ravel() + paso // 2, xs.ravel() + paso // 2)
                       if yy < h and xx < w and lab[yy, xx] == i]
         for px, py, diam in puntos:
             ventana = asfalto[max(0, int(py) - r_asf):int(py) + r_asf, max(0, int(px) - r_asf):int(px) + r_asf]
@@ -85,13 +90,17 @@ def detectar_arboles(ruta, mpp, tipo_en):
                 continue
             x = (px - w / 2) * mpp + DESPLAZAMIENTO_ESTE
             y = (h / 2 - py) * mpp
+            if (abs(x) < excluir and abs(y) < excluir) or math.hypot(x, y) > radio:
+                continue
             tipo = tipo_en(x, y)
             diam = min(max(diam, 4.0), 12.0)
-            escala = {"pino": diam / PINE_ANCHO * 0.8,
+            escala = {"eucalipto": diam / OAK_ANCHO,
                       "arbusto": min(diam, 5.0) / OAK_ANCHO,
                       "roble": diam / OAK_ANCHO}[tipo]
-            arboles.append({"tipo": tipo, "x": round(x, 2), "y": round(y, 2),
-                            "escala": round(escala, 3), "yaw": round(rng.uniform(0, 2 * math.pi), 3)})
+            # Eucalyptus: same crown width, stretched to its real height
+            escala_z = EUCALIPTO_ALTO / OAK_ALTO if tipo == "eucalipto" else escala
+            arboles.append({"tipo": tipo, "x": round(x, 2), "y": round(y, 2), "escala": round(escala, 3),
+                            "escala_z": round(escala_z, 3), "yaw": round(rng.uniform(0, 2 * math.pi), 3)})
     return arboles
 
 
@@ -108,8 +117,7 @@ def escribir_suelo(carpeta_mallas):
 
 
 def copiar_arboles(carpeta_modelo):
-    for especie, version, malla, texturas in (("oak tree", 7, "oak_tree.dae", ("bark_diffuse.png", "branch_diffuse.png")),
-                                              ("pine tree", 6, "pine_tree.dae", ("bark_diffuse.png", "branch_2_diffuse.png"))):
+    for especie, version, malla, texturas in (("oak tree", 7, "oak_tree.dae", ("bark_diffuse.png", "branch_diffuse.png")),):
         origen = os.path.join(FUEL, especie, str(version))
         if not os.path.isdir(origen):
             os.system(f'gz fuel download -u "https://fuel.gazebosim.org/1.0/OpenRobotics/models/{especie}"')
@@ -122,22 +130,21 @@ def copiar_arboles(carpeta_modelo):
 
 
 def visual_arbol(nombre, i, t):
-    malla, corto, hojas = {"pino": ("pine_tree.dae", "pine", "branch_2_diffuse.png")}.get(
-        t["tipo"], ("oak_tree.dae", "oak", "branch_diffuse.png"))
+    malla, corto, hojas = "oak_tree.dae", "oak", "branch_diffuse.png"
     pose = f"{t['x']} {t['y']} 0 0 0 {t['yaw']}"
-    s = t["escala"]
+    s, sz = t["escala"], t["escala_z"]
     xml = []
     for sub, tex, doble in (("Branch", hojas, "true"), ("Bark", "bark_diffuse.png", "false")):
         xml.append(f"""      <visual name="arbol{i}_{sub.lower()}">
         <pose>{pose}</pose>
-        <geometry><mesh><uri>model://{nombre}/meshes/{malla}</uri><submesh><name>{sub}</name></submesh><scale>{s} {s} {s}</scale></mesh></geometry>
+        <geometry><mesh><uri>model://{nombre}/meshes/{malla}</uri><submesh><name>{sub}</name></submesh><scale>{s} {s} {sz}</scale></mesh></geometry>
         <material><double_sided>{doble}</double_sided><diffuse>1 1 1</diffuse>
           <pbr><metal><albedo_map>model://{nombre}/materials/textures/{corto}/{tex}</albedo_map></metal></pbr></material>
       </visual>""")
     # Tronco como colisión, para que el gemelo no atraviese los árboles
     xml.append(f"""      <collision name="arbol{i}_tronco">
-        <pose>{t['x']} {t['y']} {1.5 * s * 2} 0 0 0</pose>
-        <geometry><cylinder><radius>{max(0.15, 0.35 * s):.2f}</radius><length>{3.0 * s * 2:.2f}</length></cylinder></geometry>
+        <pose>{t['x']} {t['y']} {1.5 * sz * 2} 0 0 0</pose>
+        <geometry><cylinder><radius>{max(0.15, 0.35 * s):.2f}</radius><length>{3.0 * sz * 2:.2f}</length></cylinder></geometry>
       </collision>""")
     return "\n".join(xml)
 
@@ -200,9 +207,8 @@ def escribir_mundo(nombre, ruta, lat, lon, elevacion, campo):
     <scene>
       <grid>false</grid>
       <ambient>0.5 0.5 0.5 1</ambient>
-      <background>0.62 0.76 0.9 1</background>
+      <background>0.16 0.38 0.78 1</background>
       <shadows>true</shadows>
-      <sky></sky>
     </scene>
     <include>
       <uri>model://{nombre}</uri>
@@ -229,9 +235,9 @@ def escribir_mundo(nombre, ruta, lat, lon, elevacion, campo):
 
 
 def tipo_campo_pruebas(x, y):
-    """Pinada al suroeste, matorral en el talud norte, encinas sueltas en el resto."""
+    """Eucaliptos al suroeste, matorral en el talud norte, encinas sueltas en el resto."""
     if x < -25 and y < -10:
-        return "pino"
+        return "eucalipto"
     if y > 68:
         return "arbusto"
     return "roble"
@@ -255,9 +261,14 @@ def main():
     lado, px, _ = CAPAS["detalle"]
     arboles = detectar_arboles(os.path.join(modelo, "materials", "textures", "detalle.jpg"),
                                lado / px, tipo_campo_pruebas)
+    # Arboleda del horizonte: árboles de la ortofoto de contexto alrededor del detalle
+    lado_c, px_c, _ = CAPAS["contexto"]
+    arboles += detectar_arboles(os.path.join(modelo, "materials", "textures", "contexto.jpg"),
+                                lado_c / px_c, lambda x, y: "roble", paso_m=12.0, area_min=30.0,
+                                excluir=lado / 2, radio=600.0)
     with open(os.path.join(modelo, "arboles.json"), "w") as f:
         json.dump(arboles, f, indent=1)
-    print("árboles:", {k: sum(t["tipo"] == k for t in arboles) for k in ("roble", "pino", "arbusto")})
+    print("árboles:", {k: sum(t["tipo"] == k for t in arboles) for k in ("roble", "eucalipto", "arbusto")})
 
     escribir_suelo(os.path.join(modelo, "meshes"))
     copiar_arboles(modelo)

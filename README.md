@@ -259,7 +259,7 @@ python mavsdk_commands/vuelo_basico.py
 The world `campo_pruebas` reproduces the field where the real drone flies (takeoff point 36°30'42.4"N 4°41'45.3"W, 20 m AMSL): the world origin is the takeoff point, so PX4 and QGroundControl place the twin at the real GPS coordinates, and the magnetic field is the WMM2025 value for the site.
 
 - Ground: PNOA orthophoto, 204.8 m at 10 cm/px plus 1.6 km of context at 80 cm/px
-- Trees: 133 oaks, pines and shrubs (Gazebo Fuel, CC0) placed over the canopies detected in the orthophoto
+- Trees: oaks, eucalyptus and shrubs (Gazebo Fuel, CC0) placed over the canopies in the orthophoto
 
 ```bash
 cd PX4-Autopilot

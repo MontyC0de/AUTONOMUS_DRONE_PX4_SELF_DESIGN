@@ -12,6 +12,7 @@ env/
 
 # Large binaries and applications
 simulation/cad_source/
+vuelos/**/*.mp4
 *.AppImage
 *.AppImage:Zone.Identifier
 
