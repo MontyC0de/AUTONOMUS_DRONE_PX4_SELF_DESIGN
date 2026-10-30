@@ -91,9 +91,12 @@ for i, (color, meshes) in enumerate(groups.items()):
     norms = source.FloatSource(f"normals{i}", np.round(normals, 3).ravel(), ("X", "Y", "Z"))
     geom = geometry.Geometry(dae, f"geometry{i}", f"part{i}", [verts, norms])
     inputs = source.InputList()
+    # Separate index columns for VERTEX and NORMAL: gz-common's ColladaLoader
+    # segfaults when both inputs share offset 0
     inputs.addInput(0, "VERTEX", f"#verts{i}")
-    inputs.addInput(0, "NORMAL", f"#normals{i}")
-    geom.primitives.append(geom.createTriangleSet(faces.ravel(), inputs, f"matref{i}"))
+    inputs.addInput(1, "NORMAL", f"#normals{i}")
+    indices = np.column_stack([faces.ravel(), faces.ravel()]).ravel()
+    geom.primitives.append(geom.createTriangleSet(indices, inputs, f"matref{i}"))
     dae.geometries.append(geom)
     nodes.append(scene.Node(f"node{i}", children=[
         scene.GeometryNode(geom, [scene.MaterialNode(f"matref{i}", mat, inputs=[])])]))
