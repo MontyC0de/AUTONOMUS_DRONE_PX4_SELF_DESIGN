@@ -55,10 +55,20 @@ class Trayectoria:
         self.t = [float(f["t_video"]) for f in filas]
         # NED: norte, este, abajo
         self.p = [(float(f["norte"]), float(f["este"]), -float(f["altura"])) for f in filas]
+        # Optional heading column (deg, clockwise from North, unwrapped): if present
+        # the drone follows it instead of facing the direction of travel
+        self.yaw = [float(f["yaw"]) for f in filas] if "yaw" in filas[0] else None
         # Despegue = último instante en el suelo antes de empezar a subir
         primero = next(i for i, p in enumerate(self.p) if -p[2] > 0.05)
         self.despegue = max(t for t, p in zip(self.t[:primero], self.p[:primero]) if -p[2] <= 0.001)
         self.fin = self.t[-1]
+
+    def rumbo(self, t):
+        """Heading at t (linear between samples, unwrapped)."""
+        t = min(max(t, self.t[0]), self.t[-1])
+        k = max(0, min(len(self.t) - 2, next((i for i in range(len(self.t) - 1) if self.t[i + 1] > t), len(self.t) - 2)))
+        u = (t - self.t[k]) / (self.t[k + 1] - self.t[k])
+        return self.yaw[k] + (self.yaw[k + 1] - self.yaw[k]) * u
 
     def muestra(self, t):
         t = min(max(t, self.t[0]), self.t[-1] - 1e-6)
@@ -82,7 +92,7 @@ async def volar(drone, tray, args, estado, casa, registro, parar, tiempos):
     """Sigue la trayectoria con el reloj del vídeo; t_video 0 = inicio de esta función."""
     periodo = 1.0 / FRECUENCIA
     reloj = asyncio.get_running_loop().time
-    yaw = 0.0
+    yaw = tray.yaw[0] if tray.yaw else 0.0
     offboard_visto = False
     armado = False
     inicio = reloj()
@@ -108,7 +118,9 @@ async def volar(drone, tray, args, estado, casa, registro, parar, tiempos):
             p, v, a = [0.0, 0.0, -h_rampa * s], [0.0, 0.0, -h_rampa * ds / T], [0.0, 0.0, -h_rampa * dds / T ** 2]
         else:
             p, v, a = tray.muestra(t)
-        if math.hypot(v[0], v[1]) > 1.0:
+        if tray.yaw:
+            yaw = tray.rumbo(t)
+        elif math.hypot(v[0], v[1]) > 1.0:
             objetivo = math.degrees(math.atan2(v[1], v[0]))
             yaw += max(-GIRO_MAX * periodo, min(GIRO_MAX * periodo, angulo_corto(yaw, objetivo)))
         await drone.offboard.set_position_velocity_acceleration_ned(
@@ -207,7 +219,7 @@ async def run(args):
                                "vn", "ve", "vd", "roll", "pitch", "yaw"])
             try:
                 # OFFBOARD con consigna en el suelo; se arma justo antes del despegue
-                await drone.offboard.set_position_ned(PositionNedYaw(*casa, 0.0))
+                await drone.offboard.set_position_ned(PositionNedYaw(*casa, tray.yaw[0] if tray.yaw else 0.0))
                 await drone.offboard.start()
                 await volar(drone, tray, args, estado, casa, registro, parar, tiempos)
                 await aterrizar(drone)

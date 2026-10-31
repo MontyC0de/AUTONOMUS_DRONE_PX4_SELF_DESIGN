@@ -287,7 +287,7 @@ python mavsdk_commands/replay_trayectoria.py vuelos/real_20250831/trayectoria_vi
 
 ```bash
 gz service -s /gui/move_to/pose --reqtype gz.msgs.GUICamera --reptype gz.msgs.Boolean --timeout 3000 \
-  --req "pose: {position: {x: 3, y: 3, z: 1.6}, orientation: {w: 0.3822, x: 0.0462, y: 0.0191, z: -0.9227}}"
+  --req "pose: {position: {x: 1.03, y: 3.35, z: 1.27}, orientation: {w: 0.5687, x: 0.1390, y: 0.0982, z: -0.8047}}"
 gz topic -t /gui/track -m gz.msgs.CameraTrack -p "track_mode: TRACK, track_target: {name: 'mi_drone_0'}, track_pgain: 0.3"
 ```
 </details>
