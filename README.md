@@ -379,6 +379,21 @@ python mavsdk_commands/graficas_vuelo.py sim.csv real.csv --etiquetas "Gemelo" "
 
 ![Top view of each figure, reference vs digital twin](vuelos/mision_20261030_175030/planta.png)
 
+**Mission video.** The log of a mission in the twin ([`vuelos/mision_20261030_184004.csv`](vuelos/mision_20261030_184004.csv)) is rendered in Gazebo frame by frame, with the simulation paused, from a fixed camera at eye height 21 m from the takeoff point and from a camera following the drone. Both views are then put side by side with the plan view of the flown path (×4).
+
+```bash
+cd simulation/tools/video
+python3 mundo_render.py ../../worlds/campo_pruebas.sdf /tmp/render.sdf
+# other terminal: start the render world headless
+#   cd PX4-Autopilot/build/px4_sitl_default/rootfs && . ./gz_env.sh
+#   GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:<repo>/simulation/tools/video/modelos_render gz sim -s --headless-rendering /tmp/render.sdf
+python3 poses_mision.py ../../../vuelos/mision_20261030_184004.csv fija.csv 4 fija
+python3 poses_mision.py ../../../vuelos/mision_20261030_184004.csv seguimiento.csv 4 seguimiento
+python3 render_mision.py fija.csv general_fija.mp4 fija.mp4 ffmpeg
+python3 render_mision.py seguimiento.csv general_seg.mp4 seguimiento.mp4 ffmpeg
+python3 montaje_mision_doble.py fija.csv fija.mp4 seguimiento.mp4 mision.mp4 ffmpeg <folder with Inter-300/400/500.ttf>
+```
+
 ## Development
 
 ### PX4 Build Commands
